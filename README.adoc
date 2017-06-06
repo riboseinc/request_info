@@ -1,1 +1,51 @@
+= request_info
+:source-highlighter: pygments
+
+image:https://img.shields.io/travis/riboseinc/request_info/master.svg["Build Status", link="https://travis-ci.org/riboseinc/request_info"]
+image:https://img.shields.io/coverity/scan/12871.svg["Coverity Scan Build Status", link="https://scan.coverity.com/projects/riboseinc-request_info"]
+
+== Installation
+
+Add this line to your application's `Gemfile`:
+
+[source,ruby]
+----
+gem 'request_info', github: 'riboseinc/request_info'
+----
+
+And then execute:
+
+----
+bundle
+----
+
+Or install it yourself as:
+
+----
+gem install request_info
+----
+
+== Usage
+
+TODO
+
+== Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run 
+`rake spec` to run the tests. You can also run `bin/console` for an interactive 
+prompt that will allow you to experiment.
+
+== Contributing
+
+Bug reports and pull requests are welcome on GitHub at 
+https://github.com/riboseinc/request_info. This project is intended to be a 
+safe, welcoming space for collaboration, and contributors are expected to 
+adhere to the http://contributor-covenant.org[Contributor Covenant] code of 
+conduct.
+
+
+== License
+
+The gem is available as open source under the terms of the 
+http://opensource.org/licenses/MIT(MIT License).
 
