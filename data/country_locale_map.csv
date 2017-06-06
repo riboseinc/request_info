@@ -1,0 +1,235 @@
+ISO3166 COUNTRY CODE,COUNTRY NAME,ISO639-1 LANGUAGE CODE IN ORDER OF PRIORITY,SOURCES: http://www.i18nguy.com/unicode/language-identifiers.html and http://www.infoplease.com/ipa/A0855611.html
+AD,Andorra,ca,fr-AD
+AE,United Arab Emirates,ar-AE
+AF,Afghanistan,fa-AF,ps,ug,uz-AF
+AG,Antigua And Barbuda,en-AG
+AI,Anguilla,en-AI
+AL,Albania,sq
+AM,Armenia,hy
+AN,Netherlands Antilles,nl-AN
+AO,Angola,pt-AO,kg,kj
+AR,Argentina,es-AR,cy-AR,gn
+AS,American Samoa,sm,en-AS
+AT,Austria,de-AT,hu
+AU,Australia,en-AU,YI
+AW,Aruba,nl-AW
+AX,Åland Islands,sv-AX
+AZ,Azerbaijan,az,az-Arab,az-Cyrl,az-Latn,av,os
+BA,Bosnia And Herzegovina,bs,hr-BA,sr-BA
+BB,Barbados,en-BB
+BD,Bangladesh,bn-BD
+BE,Belgium,nl-BE,fr-BE,de-BE,en-BE,wa,yi
+BF,Burkina Faso,fr-BF,bm,ha
+BG,Bulgaria,bg,tr-BG,cu
+BH,Bahrain,ar-BH
+BI,Burundi,fr-BI,rn
+BJ,Benin,fr-BJ
+BM,Bermuda,en-BM
+BN,Brunei Darussalam,ms-BN,en-BN
+BO,Bolivia,es-BO,ay
+BR,Brazil,pt-BR
+BS,Bahamas,en-BS
+BT,Bhutan,dz,ne
+BW,Botswana,en-BW,sn,tn-BW
+BY,Belarus,be,cu,yi
+BZ,Belize,en-BZ
+CA,Canada,en-CA,fr-CA,cr,iu,oj,yi
+CC,Cocos (Keeling) Islands,ms-CC
+CD,"Congo,The Democratic Republic Of The",fr-CD,ln-CD,kg,lu
+CF,Central African Republic,fr-CF,sg
+CG,Congo,fr-CG,ln-CG,kg
+CH,Switzerland,de-CH,fr-CH,it-CH,rm
+CI,Côte D'ivoire,fr-CI,ak,bm
+CK,Cook Islands,en-CK
+CL,Chile,es-CL,ay
+CM,Cameroon,fr-CM,en-CM
+CN,China,zh-CN,zh-Hans,zh-guoyu,zh-yue,,zh-yue,zh-wuu,zh-xiang,zh-gan,zh-hakka,i-hak,ii,za,bo
+CO,Colombia,es-CO
+CR,Costa Rica,es-CR
+CS,Serbia And Montenegro,sr,sr-Cyrl,sr-Latn,hu,cu,sq
+CU,Cuba,es-CU
+CV,Cape Verde,pt-CV
+CX,Christmas Island,ms-CC,Islands
+CY,Cyprus,el-CY,tr-CY
+CZ,Czech Republic,cs
+DE,Germany,de-DE,de-DE-1996,de-1996,de-DE-1901,de-1901,de-AT-1996,de-AT-1901,de-CH-1901,de-CH-1996,nds,da-DE,da-DE,dsb,fy-DE,hsb,lb,wen,yi
+DJ,Djibouti,fr-DJ,so-DJ,aa-DJ
+DK,Denmark,da-DK,de-DK
+DM,Dominica,en-DM
+DO,Dominican Republic,es-DO
+DZ,Algeria,ar-DZ
+EC,Ecuador,es-EC
+EE,Estonia,et,yi
+EG,Egypt,ar-EG
+ER,Eritrea,aa-ER,tig,ti-ER,byn,en-ER,gez-ER
+ES,Spain,es-ES,ca,eu,an,gl
+ET,Ethiopia,am,ti-ET,om-ET,so-ET,en-ET,gez-ET,sid,wal,aa-ET
+FI,Finland,fi-FI,sv-FI,smn
+FJ,Fiji,en-FJ,fj
+FK,Falkland Islands (Malvinas),en-FK
+FM,"Micronesia,Federated States Of",en-FM
+FO,Faroe Islands,fo,da-FO
+FR,France,fr-FR,br,co,de-FR,oc
+GA,Gabon,fr-GA
+GB,United Kingdom,en-GB,en-GB-oed,en-scouse,cy-GB,gd,fr-GB,ga-GB,gv,kw
+GD,Grenada,en-GD
+GE,Georgia,ka,ab,os
+GF,French Guiana,fr-GF
+GH,Ghana,en-GH,ak,ee,tw
+GI,Gibraltar,en-GI
+GL,Greenland,kl,da-GL
+GM,Gambia,en-GM,wo,bm
+GN,Guinea,fr-GN
+GP,Guadeloupe,fr-GP
+GQ,Equatorial Guinea,es-GQ
+GR,Greece,el-GR
+GT,Guatemala,es-GT
+GU,Guam,ch-GU,en-GU
+GW,Guinea-Bissau,pt-GW
+GY,Guyana,en-GY
+HK,Hong Kong,zh-HK,en-HK,zh-Hant-HK,zh-Hant
+HN,Honduras,es-HN
+HR,Croatia,hr-HR,it-HR
+HT,Haiti,fr-HT,ht
+HU,Hungary,hu-HU,de-HU,sk-HU,sr-HU
+ID,Indonesia,id,jv,su
+IE,Ireland,en-IE,ga-IE
+IL,Israel,he,ar-IL,en-IL,yi
+IN,India,hi,en-IN,bn-IN,gu,ks,ml,mr,or,ta-IN,te,ur-IN,kn,as,sa,sd-IN,ar-IN,bh,kok,ne,pa,pi
+IO,British Indian Ocean Territory,en-IO
+IQ,Iraq,ar-IQ,ku
+IR,"Iran,Islamic Republic Of",fa-IR,ku,ae
+IS,Iceland,is
+IT,Italy,it-IT,de-IT,fr-IT,co,sc
+JM,Jamaica,en-JM
+JO,Jordan,ar-JO
+JP,Japan,ja
+KE,Kenya,en-KE,sw-KE,ki,om-KE,so-KE
+KG,Kyrgyzstan,ky,ug
+KH,Cambodia,km
+KI,Kiribati,en-KI
+KM,Comoros,fr-KM
+KN,Saint Kitts And Nevis,en-KN
+KP,"Korea,Democratic People's Republic Of",ko-KP
+KR,"Korea,Republic Of",ko-KR
+KW,Kuwait,ar-KW
+KY,Cayman Islands,en-KY
+KZ,Kazakhstan,kk,av,os,ug
+LA,Lao People's Democratic Republic,lo
+LB,Lebanon,ar-LB,fr-LB
+LC,Saint Lucia,en-LC
+LI,Liechtenstein,de-LI
+LK,Sri Lanka,si
+LR,Liberia,en-LR
+LS,Lesotho,en-LS,st,xh
+LT,Lithuania,lt,yi
+LU,Luxembourg,lb,fr-LU,de-LU
+LV,Latvia,lv,yi
+LY,Libyan Arab Jamahiriya,ar-LY
+MA,Morocco,ar-MA
+MC,Monaco,fr-MC
+MD,"Moldova,Republic Of",mo,ro,tr,uk,yi
+MG,Madagascar,mg,fr-MG
+MH,Marshall Islands,mh,en-MH
+MK,"Macedonia,The Former Yugoslav Republic Of",mk,cu
+ML,Mali,fr-ML,bm
+MM,Myanmar,my
+MN,Mongolia,mn
+MO,Macao,zh-MO,zh-Hant
+MP,Northern Mariana Islands,ch-MP,en-MP
+MQ,Martinique,fr-MQ
+MR,Mauritania,ar-MR,wo
+MS,Montserrat,en-MS
+MT,Malta,mt,en-MT
+MU,Mauritius,en-MU
+MV,Maldives,dv
+MW,Malawi,ny,en-MW
+MX,Mexico,es-MX
+MY,Malaysia,ms-MY,jv
+MZ,Mozambique,pt-MZ,sn
+NA,Namibia,en-NA,hz,ng
+NC,New Caledonia,fr-NC
+NE,Niger,fr-NE,ha,ff-NE,kr
+NF,Norfolk Island,en-NF
+NG,Nigeria,en-NG,ha,yo,ig,ff-NG,kr
+NI,Nicaragua,es-NI
+NL,Netherlands,nl-NL,fy-NL,li
+NO,Norway,nb,nn,no,no-bok,no-nyn
+NP,Nepal,ne
+NR,Nauru,na,en-NR
+NU,Niue,en-NU
+NZ,New Zealand,en-NZ,mi
+OM,Oman,ar-OM
+PA,Panama,es-PA
+PE,Peru,es-PE,qu,ay
+PF,French Polynesia,fr-PF,ty
+PG,Papua New Guinea,ho,en-PG
+PH,Philippines,en-PH,tl
+PK,Pakistan,ur-PK,en-PK,sd-PK
+PL,Poland,pl,de-PL,yi
+PM,Saint Pierre And Miquelon,fr-PM
+PN,Pitcairn,en-PN
+PR,Puerto Rico,es-PR,en-PR
+PS,"Palestinian Territory,Occupied",ar-PS
+PT,Portugal,pt-PT
+PW,Palau,en-PW
+PY,Paraguay,es-PY,gn
+QA,Qatar,ar-QA
+RE,Réunion,fr-RE
+RO,Romania,ro,hu,cu,YI
+RU,Russian Federation,ru-RU,av,ba,ce,cu,cv,kv,os,tt,yi
+RW,Rwanda,rw,fr-RW,en-RW
+SA,Saudi Arabia,ar-SA
+SB,Solomon Islands,en-SB
+SC,Seychelles,en-SC,fr-SC
+SD,Sudan,ar-SD,din,ha
+SE,Sweden,sv-SE,se,sma,sme,fi-SE
+SG,Singapore,en-SG,zh-SG,zh-Hans-SG,ms-SG,ta-SG,bn-SG
+SH,Saint Helena,en-SH
+SI,Slovenia,hu-SI,it-SI
+SK,Slovakia,sk,hu
+SL,Sierra Leone,en-SL
+SM,San Marino,it-SM
+SN,Senegal,wo,ff-SN
+SO,Somalia,so-SO,ar-SO,en-SO
+SR,Suriname,nl-SR,jv
+ST,Sao Tome And Principe,pt-ST
+SV,El Salvador,es-SV
+SY,Syrian Arab Republic,ar-SY,syr
+SZ,Swaziland,en-SZ,ss-SZ
+TC,Turks And Caicos Islands,en-TC
+TD,Chad,fr-TD,ar-TD
+TG,Togo,fr-TG,ee,ha
+TH,Thailand,th,si
+TJ,Tajikistan,tg,os,ug
+TK,Tokelau,en-TK
+TL,Timor-Leste,pt-TL
+TM,Turkmenistan,tk,os
+TN,Tunisia,ar-TN
+TO,Tonga,to,en-TO
+TR,Turkey,tr-TR,ku,ab,av,ug
+TT,Trinidad And Tobago,en-TT
+TV,Tuvalu,tvl,gil
+TW,"Taiwan,Province Of China",zh-TW,zh-Hant,zh-min,zh-min-nan
+TZ,"Tanzania,United Republic Of",sw-TZ
+UA,Ukraine,uk,ru-UA,ro,pl,hu,ab,cu,os,yi
+UG,Uganda,en-UG,lg
+UM,United States Minor Outlying Islands,en-UM
+US,United States,en-US,es-US,haw,ik,nv,oj,yi,en-boont
+UY,Uruguay,es-UY
+UZ,Uzbekistan,uz-UZ,uz-Cyrl,uz-Latn,os,ug
+VA,Holy See (Vatican City State),it,la,fr
+VC,Saint Vincent And The Grenadines,en-VC
+VE,Venezuela,es-VE
+VG,"Virgin Islands,British",en-VG
+VI,"Virgin Islands,U.S.",en-VI
+VN,Viet Nam,vi
+VU,Vanuatu,bi,en-VU,fr-VU
+WF,Wallis And Futuna,fr-WF
+WS,Samoa,sm,en-WS
+YE,Yemen,ar-YE
+YT,Mayotte,fr-YT
+YU,Yugoslavia,sr-YU
+ZA,South Africa,zu,xh,af,en-ZA,nr,ss-ZA,tn-ZA,ts,ve,yi
+ZM,Zambia,en-ZM
+ZW,Zimbabwe,en-ZW,sn,nd,ve,zu
