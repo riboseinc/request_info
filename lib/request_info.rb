@@ -21,7 +21,7 @@ module RequestInfo
   #autoload :Tests,   'request_info/tests'
 
   class << self
-
+binding.pry
     # Get current configuration
     def config
       Thread.current[:request_info_config] ||=
