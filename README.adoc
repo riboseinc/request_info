@@ -35,6 +35,11 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run
 `rake spec` to run the tests. You can also run `bin/console` for an interactive 
 prompt that will allow you to experiment.
 
+You will need to have gem libmaxminddb installed in your machine before running 'bin/setup'.
+If you do not have it setup please follow the steps outlined in this gist
+https://gist.github.com/leonardteo/9a128bc8ca983fa728aa08d8209e714a, as as homebrew install
+will not work.
+
 == Contributing
 
 Bug reports and pull requests are welcome on GitHub at 
