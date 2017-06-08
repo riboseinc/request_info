@@ -3,4 +3,9 @@ language: ruby
 rvm:
   - 2.3.2
   - 2.4.1
-before_install: gem install bundler -v 1.15.1
+before_install:
+  - apt-get install -y software-properties-common
+  - add-apt-repository -y ppa:maxmind/ppa
+  - apt-get update -y
+  - apt-get install -y libmaxminddb0 libmaxminddb-dev mmdb-bin
+  - gem install bundler -v 1.15.1
