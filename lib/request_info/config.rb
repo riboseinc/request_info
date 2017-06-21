@@ -1,4 +1,4 @@
-module RequestInfo::Detection
+module RequestInfo
   class Config
 
     # Path to the locale-name map csv file
