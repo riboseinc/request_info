@@ -28,7 +28,8 @@ module RequestInfo
     # Path to the GeoIPCity .dat file
     def geoip_path
       @@geoip_path ||=
-        '/usr/share/GeoIP/GeoIP2-City.mmdb'
+        ENV['GEOIPDBPATH'] ||
+        '/usr/local/GeoIP/GeoIP2-City.mmdb'
     end
 
     def geoip_path=(path)
