@@ -4,7 +4,7 @@ RSpec.describe RequestInfo::TimezoneDetector do
   let(:detected) { RequestInfo.results }
 
   # Freeze time in winter to avoid any possible DST issues.
-  before { Timecop.freeze 2018, 01 }
+  before { Timecop.freeze 2018, 1 }
 
   it "is a singleton" do
     expect(described_class).to respond_to(:instance)
