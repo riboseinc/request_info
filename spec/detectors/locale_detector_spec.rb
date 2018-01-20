@@ -10,10 +10,10 @@ RSpec.describe RequestInfo::LocaleDetector do
 
   let(:detected) { RequestInfo.results }
   let(:env_key_name) { "request_info.locale.detected" }
-  let(:env) { {"HTTP_ACCEPT_LANGUAGE" => h_accept_language} }
+  let(:env) { { "HTTP_ACCEPT_LANGUAGE" => h_accept_language } }
 
   before do
-    ipinfo = ipinfo_country_code && {"country_code" => ipinfo_country_code}
+    ipinfo = ipinfo_country_code && { "country_code" => ipinfo_country_code }
     allow_any_instance_of(RequestInfo::Results).
       to receive(:ipinfo).and_return(ipinfo)
   end

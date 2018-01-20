@@ -4,7 +4,7 @@ RSpec.shared_context "test stack" do
   let(:inner_app) do
     lambda do |env|
       expect(env).to be_a(Hash)
-      [200, {"Custom-Header" => "Yes"}, ["Hello World"]]
+      [200, { "Custom-Header" => "Yes" }, ["Hello World"]]
     end
   end
 
