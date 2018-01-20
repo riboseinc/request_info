@@ -1,6 +1,5 @@
 module RequestInfo
   class Config
-
     # Path to the locale-name map csv file
     def locale_name_map_path
       @@locale_name_map_path ||= File.expand_path(
@@ -35,7 +34,5 @@ module RequestInfo
     def geoip_path=(path)
       @@geoip_path = path.to_s
     end
-
   end
 end
-

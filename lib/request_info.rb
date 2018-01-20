@@ -7,7 +7,7 @@ require "request_info/railtie" if defined?(Rails)
 
 module RequestInfo
   autoload :GeoIp, "request_info/geoip"
-  autoload :Locale,  "request_info/locale"
+  autoload :Locale, "request_info/locale"
   autoload :CountryLocaleMap, "request_info/country_locale_map"
   autoload :LocaleNameMap, "request_info/locale_name_map"
   autoload :Timezone, "request_info/timezone"
@@ -18,7 +18,7 @@ module RequestInfo
   autoload :LocaleDetector, "request_info/locale_detector"
   autoload :TimezoneDetector, "request_info/timezone_detector"
   autoload :Timezone, "request_info/timezone"
-  #autoload :Tests,   'request_info/tests'
+  # autoload :Tests,   'request_info/tests'
 
   class << self
     # Get current configuration
@@ -42,7 +42,5 @@ module RequestInfo
     def results=(value)
       Thread.current[:request_info_results] = value
     end
-
   end
-
 end

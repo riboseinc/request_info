@@ -60,7 +60,6 @@ class RequestInfo::LocaleNameMap
         native: names,
         en: ename
       }
-
     end
 
     puts "Done."
@@ -103,6 +102,4 @@ class RequestInfo::LocaleNameMap
   def language_name_lookup(l)
     @lc[l.downcase.to_sym]
   end
-
 end
-

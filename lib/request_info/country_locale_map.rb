@@ -92,7 +92,7 @@ class RequestInfo::CountryLocaleMap
   # "us".
   #
   def locale_country_codes(l)
-    if l.nil? || ! @ll.has_key?(l.downcase.to_sym)
+    if l.nil? || !@ll.has_key?(l.downcase.to_sym)
       Rails.logger.warn "Unknown locale key: #{l}"
       l = DEFAULT_LOCALE_CODE
     end
@@ -103,13 +103,11 @@ class RequestInfo::CountryLocaleMap
   # Returns an array of locale ids that match the given country code.
   #
   def country_code_locales(c)
-    if c.nil? || ! @cc.has_key?(c.downcase.to_sym)
+    if c.nil? || !@cc.has_key?(c.downcase.to_sym)
       Rails.logger.warn "Unknown country code: #{c}"
       c = DEFAULT_COUNTRY_CODE
     end
 
     @cc[c.downcase.to_sym][:locales]
   end
-
 end
-

@@ -7,7 +7,6 @@ require "maxmind_geoip2"
 #   lookup(ip)
 #
 module RequestInfo::GeoIP
-
   class << self
     attr_accessor :database
 
@@ -25,11 +24,9 @@ module RequestInfo::GeoIP
       MaxmindGeoIP2.locale("en")
 
       puts "Done."
-
     rescue LoadError
       Rails.logger.warn "[request_info] Warning: " +
         "Gem maxmind_geoip2 not found (>=0.0.8)"
-
     rescue
       Rails.logger.warn (
         "[request_info] Warning: Unable to initialize GeoIP database: " +
@@ -37,7 +34,6 @@ module RequestInfo::GeoIP
         "Check configuration."
       )
     end
-
 
     ## FOR TESTING
     ## geoinfo = GeoIp.lookup('116.49.226.82')
@@ -49,13 +45,11 @@ module RequestInfo::GeoIP
     # Information currently comes from GeoIPCity.
     #
     def lookup(ip)
-
       # Quit if database or IP not present
       return nil unless self.database && ip && !ip.blank?
 
-      #Rails.logger.warn "[request_info] locate results #{self.database.locate(ip).inspect}"
+      # Rails.logger.warn "[request_info] locate results #{self.database.locate(ip).inspect}"
       self.database.locate(ip)
     end
-
   end
 end

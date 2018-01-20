@@ -3,12 +3,10 @@ require "active_support/time"
 
 # Detects Timezone related information
 class RequestInfo::TimezoneDetector < RequestInfo::Detector
-
   def detect(env)
-
     ipinfo = RequestInfo.results.ipinfo
 
-    #Rails.logger.warn "[request_info] geoip results #{ipinfo.inspect}"
+    # Rails.logger.warn "[request_info] geoip results #{ipinfo.inspect}"
 
     # Stop processing if no ipinfo
     return nil_result unless ipinfo && ipinfo["country"]
@@ -22,10 +20,10 @@ class RequestInfo::TimezoneDetector < RequestInfo::Detector
     # Stop processing if tzinfo isn't found as a TimeZone
     return nil_result unless tzinfo
 
-    #Rails.logger.warn "[request_info] geoip results tzinfo #{tzinfo}"
+    # Rails.logger.warn "[request_info] geoip results tzinfo #{tzinfo}"
 
     # Total offset is UTC + DST
-    total_offset = tzinfo.current_period.utc_total_offset/3600.0
+    total_offset = tzinfo.current_period.utc_total_offset / 3600.0
 
     {
       timezone: tzinfo,
@@ -40,7 +38,4 @@ class RequestInfo::TimezoneDetector < RequestInfo::Detector
   def nil_result
     { timezone: nil }
   end
-
 end
-
-
