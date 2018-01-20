@@ -10,7 +10,7 @@ module RequestInfo
 
         {
           ip: ip,
-          ipinfo: RequestInfo::GeoIP.lookup(ip),
+          ipinfo: RequestInfo::GeoIP.instance.lookup(ip),
         }
       end
 

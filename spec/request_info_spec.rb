@@ -80,7 +80,7 @@ RSpec.describe RequestInfo do
 
   describe "::preload" do
     it "preloads GeoIP, and CountryLocaleMap classes" do
-      expect(RequestInfo::GeoIP).to receive(:setup)
+      expect(RequestInfo::GeoIP).to receive(:instance)
       expect(RequestInfo::CountryLocaleMap).to receive(:instance)
       described_class.preload
     end
