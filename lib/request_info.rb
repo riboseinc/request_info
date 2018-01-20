@@ -37,7 +37,7 @@ module RequestInfo
     end
 
     def preload
-      GeoIP.setup
+      GeoIP.instance
       CountryLocaleMap.instance
     end
   end

@@ -6,14 +6,13 @@ require "maxmind_geoip2"
 #   setup
 #   lookup(ip)
 #
-module RequestInfo::GeoIP
-  class << self
+class RequestInfo::GeoIP
+    include Singleton
+
     attr_accessor :database
 
     # Sets up the GeoIPCity database for upcoming queries
-    #
-    # Called from railtie.
-    def setup
+    def initialize
       print "[request_info] setting up geoip database... "
 
       self.database = MaxmindGeoIP2
@@ -51,5 +50,4 @@ module RequestInfo::GeoIP
       # Rails.logger.warn "[request_info] locate results #{self.database.locate(ip).inspect}"
       self.database.locate(ip)
     end
-  end
 end
