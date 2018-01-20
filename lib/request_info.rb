@@ -17,7 +17,6 @@ module RequestInfo
   autoload :LocaleDetector, "request_info/locale_detector"
   autoload :TimezoneDetector, "request_info/timezone_detector"
   autoload :Timezone, "request_info/timezone"
-  # autoload :Tests,   'request_info/tests'
 
   class << self
     # Get current configuration
