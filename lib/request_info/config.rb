@@ -4,7 +4,7 @@ module RequestInfo
     def locale_name_map_path
       @@locale_name_map_path ||= File.expand_path(
         "../../../data/locale_name_map.csv",
-        __FILE__
+        __FILE__,
       )
     end
 
@@ -16,7 +16,7 @@ module RequestInfo
     def locale_map_path
       @@locale_map_path ||= File.expand_path(
         "../../../data/country_locale_map.csv",
-        __FILE__
+        __FILE__,
       )
     end
 

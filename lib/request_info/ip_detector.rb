@@ -8,7 +8,7 @@ class RequestInfo::IpDetector < RequestInfo::Detector
 
     {
       ip: ip,
-      ipinfo: RequestInfo::GeoIP.lookup(ip)
+      ipinfo: RequestInfo::GeoIP.lookup(ip),
     }
   end
 

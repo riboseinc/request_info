@@ -31,7 +31,7 @@ class RequestInfo::TimezoneDetector < RequestInfo::Detector
       timezone_offset: total_offset,
       # TODO: i18n this
       timezone_desc: "GMT(#{total_offset > 0 ? '+' : ''}#{total_offset}) " +
-        "#{tzinfo.friendly_identifier}"
+        "#{tzinfo.friendly_identifier}",
     }
   end
 

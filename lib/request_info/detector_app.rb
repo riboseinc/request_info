@@ -19,7 +19,7 @@ class RequestInfo::DetectorApp
       [
         RequestInfo::IpDetector,
         RequestInfo::TimezoneDetector,
-        RequestInfo::LocaleDetector
+        RequestInfo::LocaleDetector,
       ].each do |d|
         self.class.detectors << d
       end
@@ -63,7 +63,7 @@ class RequestInfo::DetectorApp
       res.each_pair do |k, v|
         RequestInfo.results.send(
           "#{k}=",
-          v
+          v,
         )
       end unless res.nil?
     end

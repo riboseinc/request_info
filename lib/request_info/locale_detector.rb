@@ -8,7 +8,7 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
 
     # Find compatible locales
     compat = RequestInfo::Locale.compatible_langs(
-      accept_language(env)
+      accept_language(env),
     )
 
     # puts "Compatible locales! #{compat.inspect}"
@@ -34,7 +34,7 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
     end
 
     {
-      locale: locale
+      locale: locale,
     }
   end
 

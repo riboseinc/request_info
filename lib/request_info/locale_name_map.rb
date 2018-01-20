@@ -45,7 +45,7 @@ class RequestInfo::LocaleNameMap
     CSV.foreach(
       @path,
       # is a Unicode16LE file
-      "r:UTF-16LE:UTF-8"
+      "r:UTF-16LE:UTF-8",
     ) do |row|
 
       next if row.empty?
@@ -58,7 +58,7 @@ class RequestInfo::LocaleNameMap
       names = row[2..-1].reject(&:nil?).map(&:strip)
       @lc[lcode] = {
         native: names,
-        en: ename
+        en: ename,
       }
     end
 
