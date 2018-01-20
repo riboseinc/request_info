@@ -1,4 +1,3 @@
-require "request_info/ip_detector"
 require "active_support/time"
 
 # Detects Timezone related information
