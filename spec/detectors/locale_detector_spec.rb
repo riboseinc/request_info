@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe RequestInfo::LocaleDetector do
+RSpec.describe RequestInfo::Detectors::LocaleDetector do
   let(:default_locale) { :en }
   let(:initial_locale) { :en }
   let(:ipinfo_locale) { :de }

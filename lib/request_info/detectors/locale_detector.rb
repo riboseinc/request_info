@@ -1,8 +1,8 @@
-require "request_info/detector"
+require "request_info/detectors/base"
 require "request_info/locale"
 require "i18n"
 
-class RequestInfo::LocaleDetector < RequestInfo::Detector
+class RequestInfo::Detectors::LocaleDetector < RequestInfo::Detectors::Base
   def detect(env)
     @@old_locale = ::I18n.locale
 

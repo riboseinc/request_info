@@ -1,7 +1,8 @@
+require "request_info/detectors/base"
 require "active_support/time"
 
 # Detects Timezone related information
-class RequestInfo::TimezoneDetector < RequestInfo::Detector
+class RequestInfo::Detectors::TimezoneDetector < RequestInfo::Detectors::Base
   def detect(_env)
     ipinfo = RequestInfo.results.ipinfo
 

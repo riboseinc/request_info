@@ -1,6 +1,6 @@
-require "request_info/ip_detector"
-require "request_info/timezone_detector"
-require "request_info/locale_detector"
+require "request_info/detectors/ip_detector"
+require "request_info/detectors/timezone_detector"
+require "request_info/detectors/locale_detector"
 
 # Rack middleware to process all specified detectors and sets results for the
 # current thread
@@ -15,9 +15,9 @@ class RequestInfo::DetectorApp
     # TODO: make this list of detectors available for others to add/change
     if !self.class.detectors
       self.class.detectors = [
-        RequestInfo::IpDetector,
-        RequestInfo::TimezoneDetector,
-        RequestInfo::LocaleDetector,
+        RequestInfo::Detectors::IpDetector,
+        RequestInfo::Detectors::TimezoneDetector,
+        RequestInfo::Detectors::LocaleDetector,
       ]
     end
   end
