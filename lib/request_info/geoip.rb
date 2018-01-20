@@ -6,7 +6,8 @@ require "maxmind_geoip2"
 #   setup
 #   lookup(ip)
 #
-class RequestInfo::GeoIP
+module RequestInfo
+  class GeoIP
     include Singleton
 
     attr_accessor :database
@@ -50,4 +51,5 @@ class RequestInfo::GeoIP
       # Rails.logger.warn "[request_info] locate results #{self.database.locate(ip).inspect}"
       self.database.locate(ip)
     end
+  end
 end
