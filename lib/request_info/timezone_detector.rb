@@ -1,5 +1,5 @@
-require 'request_info/ip_detector'
-require 'active_support/time'
+require "request_info/ip_detector"
+require "active_support/time"
 
 # Detects Timezone related information
 class RequestInfo::TimezoneDetector < RequestInfo::Detector

@@ -3,9 +3,9 @@
 #
 #
 
-require 'csv'
-require 'singleton'
-require 'request_info/config'
+require "csv"
+require "singleton"
+require "request_info/config"
 
 #
 # Provides a mapping between ISO3166 country codes and RFC4646 locale
@@ -42,8 +42,8 @@ class RequestInfo::CountryLocaleMap
   include Singleton
   attr_accessor :cc, :ll
 
-  DEFAULT_COUNTRY_CODE = 'us'
-  DEFAULT_LOCALE_CODE = 'en-us'
+  DEFAULT_COUNTRY_CODE = "us"
+  DEFAULT_LOCALE_CODE = "en-us"
 
   def initialize
     @cc = {}

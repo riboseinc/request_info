@@ -4,7 +4,7 @@ module RequestInfo
     # Path to the locale-name map csv file
     def locale_name_map_path
       @@locale_name_map_path ||= File.expand_path(
-        '../../../data/locale_name_map.csv',
+        "../../../data/locale_name_map.csv",
         __FILE__
       )
     end
@@ -16,7 +16,7 @@ module RequestInfo
     # Path to the country-locale map csv file
     def locale_map_path
       @@locale_map_path ||= File.expand_path(
-        '../../../data/country_locale_map.csv',
+        "../../../data/country_locale_map.csv",
         __FILE__
       )
     end
@@ -28,8 +28,8 @@ module RequestInfo
     # Path to the GeoIPCity .dat file
     def geoip_path
       @@geoip_path ||=
-        ENV['GEOIPDBPATH'] ||
-        '/usr/local/GeoIP/GeoIP2-City.mmdb'
+        ENV["GEOIPDBPATH"] ||
+        "/usr/local/GeoIP/GeoIP2-City.mmdb"
     end
 
     def geoip_path=(path)

@@ -1,4 +1,4 @@
-require 'maxmind_geoip2'
+require "maxmind_geoip2"
 
 # Our interface to GeoIP.
 #

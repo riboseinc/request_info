@@ -1,5 +1,5 @@
-require 'request_info/detector'
-require 'request_info/geoip'
+require "request_info/detector"
+require "request_info/geoip"
 
 # Detects IP related information
 class RequestInfo::IpDetector < RequestInfo::Detector
@@ -27,11 +27,11 @@ class RequestInfo::IpDetector < RequestInfo::Detector
     # IF YOU DON'T USE A PROXY, THIS MAKES YOU VULNERABLE TO IP SPOOFING.
     return env["action_dispatch.remote_ip"].calculate_ip if env["action_dispatch.remote_ip"]
 
-    if env['HTTP_X_FORWARDED_FOR']
+    if env["HTTP_X_FORWARDED_FOR"]
       # The old way, getting the first IP off X_FORWARDED_FOR stack (env['HTTP_X_FORWARDED_FOR'].split(',').first), would leave us with a security hole
       # so get the entire stack instead.
       # ref: http://www.xyu.io/2013/07/proxies-ip-spoofing/
-      return env['HTTP_X_FORWARDED_FOR']
+      return env["HTTP_X_FORWARDED_FOR"]
     end
 
     env["REMOTE_ADDR"]

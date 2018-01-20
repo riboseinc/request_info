@@ -19,7 +19,7 @@
 # preserved.
 #
 
-require 'request_info/country_locale_map'
+require "request_info/country_locale_map"
 
 module RequestInfo::Locale
 
@@ -108,7 +108,7 @@ module RequestInfo::Locale
       #
       compat += unmatched.inject([]) do |acc, (l, q)|
         matched = avail.detect do |k| # en
-          l.split('-', 2).first == k.split('-', 2).first
+          l.split("-", 2).first == k.split("-", 2).first
         end
         matched ?
           acc << [matched, q] :
@@ -155,9 +155,9 @@ module RequestInfo::Locale
 
         # without q means 1.0
         unless l =~ /;q=\d+\.\d+$/
-          l += ';q=1.0'
+          l += ";q=1.0"
         end
-        lang, q = l.split(';q=')
+        lang, q = l.split(";q=")
 
         # reject bad language codes
         unless lang =~ /^[a-z\-]+$/i
