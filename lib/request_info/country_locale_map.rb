@@ -71,8 +71,8 @@ class RequestInfo::CountryLocaleMap
       name = row[1].strip
       langs = row[2..-1].reject(&:nil?).map(&:downcase).map(&:strip)
       @cc[ccode] = {
-        :name => name,
-        :locales => langs
+        name: name,
+        locales: langs
       }
 
       langs.each do |l|

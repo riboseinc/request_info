@@ -8,7 +8,7 @@ module RequestInfo
     # end
 
     # Insert DetectorApp middleware
-    initializer :setup_request_info, :group => :all do |app|
+    initializer :setup_request_info, group: :all do |app|
       app.config.middleware.use RequestInfo::DetectorApp
     end
 
