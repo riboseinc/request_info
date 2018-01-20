@@ -60,7 +60,7 @@ class RequestInfo::CountryLocaleMap
 
     # read in country locale map file
     CSV.foreach(
-      @path
+      @path,
     ) do |row|
       next if row.empty?
 
@@ -72,7 +72,7 @@ class RequestInfo::CountryLocaleMap
       langs = row[2..-1].reject(&:nil?).map(&:downcase).map(&:strip)
       @cc[ccode] = {
         name: name,
-        locales: langs
+        locales: langs,
       }
 
       langs.each do |l|

@@ -42,7 +42,7 @@ module RequestInfo::Locale
 
       # Get languages for country from country-locale map
       langs = RequestInfo::CountryLocaleMap.instance.country_code_locales(
-        ipinfo["country_code"]
+        ipinfo["country_code"],
       )
 
       # Return downcased locale id with -ve quality factor.
@@ -72,7 +72,7 @@ module RequestInfo::Locale
 
       langs = sort_by_quality(
         browser_langs(accept_lanugage) +
-        ip_langs
+        ip_langs,
       )
 
       # I18n.available_languages are downcased
