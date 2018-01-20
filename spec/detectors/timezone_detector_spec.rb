@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe RequestInfo::TimezoneDetector do
+RSpec.describe RequestInfo::Detectors::TimezoneDetector do
   let(:detected) { RequestInfo.results }
 
   # Freeze time in winter to avoid any possible DST issues.

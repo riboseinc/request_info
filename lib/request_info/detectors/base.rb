@@ -5,7 +5,7 @@
 #
 require "singleton"
 
-class RequestInfo::Detector
+class RequestInfo::Detectors::Base
   include ::Singleton
 
   # `detect' is run prior to Rails processing on a request.

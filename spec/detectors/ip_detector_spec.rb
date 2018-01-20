@@ -2,7 +2,7 @@ require "spec_helper"
 require "action_dispatch/middleware/remote_ip"
 require "rails"
 
-RSpec.describe RequestInfo::IpDetector do
+RSpec.describe RequestInfo::Detectors::IpDetector do
   let(:detected) { RequestInfo.results }
 
   # iana.org is registered in Los Angeles, US

@@ -1,8 +1,8 @@
-require "request_info/detector"
+require "request_info/detectors/base"
 require "request_info/geoip"
 
 # Detects IP related information
-class RequestInfo::IpDetector < RequestInfo::Detector
+class RequestInfo::Detectors::IpDetector < RequestInfo::Detectors::Base
   def detect(env)
     ip = request_ip(env)
 
