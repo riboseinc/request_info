@@ -38,7 +38,7 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
     }
   end
 
-  def after_app(status, headers, body)
+  def after_app(_status, headers, _body)
     # Set header language back to the client
     headers["Content-Language"] = RequestInfo.results.locale
 

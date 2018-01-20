@@ -3,7 +3,7 @@ require "active_support/time"
 
 # Detects Timezone related information
 class RequestInfo::TimezoneDetector < RequestInfo::Detector
-  def detect(env)
+  def detect(_env)
     ipinfo = RequestInfo.results.ipinfo
 
     # Rails.logger.warn "[request_info] geoip results #{ipinfo.inspect}"

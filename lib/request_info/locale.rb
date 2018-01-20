@@ -123,7 +123,7 @@ module RequestInfo::Locale
     # Input/Output: [ [localeid, qualityfactor], ... ]
     #
     def sort_by_quality(arr)
-      arr.sort do |(a, b), (x, y)|
+      arr.sort do |(_a, b), (_x, y)|
         y <=> b
       end
     end
