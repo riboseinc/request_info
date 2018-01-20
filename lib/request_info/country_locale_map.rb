@@ -42,8 +42,8 @@ class RequestInfo::CountryLocaleMap
   include Singleton
   attr_accessor :cc, :ll
 
-  DEFAULT_COUNTRY_CODE = "us"
-  DEFAULT_LOCALE_CODE = "en-us"
+  DEFAULT_COUNTRY_CODE = "us".freeze
+  DEFAULT_LOCALE_CODE = "en-us".freeze
 
   def initialize
     @cc = {}
