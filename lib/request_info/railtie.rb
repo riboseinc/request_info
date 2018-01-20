@@ -3,7 +3,6 @@ require "rails/railtie"
 
 module RequestInfo
   class Railtie < ::Rails::Railtie
-
     # config.before_initialize do
     # end
 
@@ -17,7 +16,5 @@ module RequestInfo
     config.after_initialize do
       GeoIP.setup
     end
-
   end
 end
-

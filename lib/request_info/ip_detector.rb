@@ -3,7 +3,6 @@ require "request_info/geoip"
 
 # Detects IP related information
 class RequestInfo::IpDetector < RequestInfo::Detector
-
   def detect(env)
     ip = request_ip(env)
 
@@ -36,7 +35,4 @@ class RequestInfo::IpDetector < RequestInfo::Detector
 
     env["REMOTE_ADDR"]
   end
-
-
 end
-

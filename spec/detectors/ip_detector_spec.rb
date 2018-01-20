@@ -19,7 +19,7 @@ RSpec.describe RequestInfo::IpDetector do
   # See full list at: https://en.wikipedia.org/wiki/Reserved_IP_addresses
   let(:reserved_ip) { "198.51.100.16" }
 
-  before(:all){ RequestInfo::GeoIP.setup }
+  before(:all) { RequestInfo::GeoIP.setup }
 
   it "is a singleton" do
     expect(described_class).to respond_to(:instance)
@@ -65,7 +65,7 @@ RSpec.describe RequestInfo::IpDetector do
   end
 
   context "when ActionDispatch::RemoteIp is unavailable, but X-Forwarded-For " +
-      "header is present" do
+    "header is present" do
     let(:env) { { "HTTP_X_FORWARDED_FOR" => "#{iana_org_ip}, #{nask_pl_ip}" } }
     let(:expected_ip) { "#{iana_org_ip}, #{nask_pl_ip}" }
     let(:expected_country_code) { iana_org_country_code }
@@ -76,7 +76,7 @@ RSpec.describe RequestInfo::IpDetector do
   end
 
   context "when ActionDispatch::RemoteIp is unavailable, neither " +
-      "X-Forwarded-For header is, but REMOTE_ADDR is present" do
+    "X-Forwarded-For header is, but REMOTE_ADDR is present" do
     let(:env) { { "REMOTE_ADDR" => nask_pl_ip } }
     let(:expected_ip) { nask_pl_ip }
     let(:expected_country_code) { nask_pl_country_code }

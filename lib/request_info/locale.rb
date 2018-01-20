@@ -22,9 +22,7 @@
 require "request_info/country_locale_map"
 
 module RequestInfo::Locale
-
   class << self
-
     # Languages determined by ip lookup. Each country and region may
     # have a different order of preference for languages.
     #
@@ -38,7 +36,6 @@ module RequestInfo::Locale
     # browser locale detection.
     #
     def ip_langs
-
       # Use results from IpDetector
       ipinfo = RequestInfo.results.ipinfo
       return [] unless ipinfo
@@ -57,7 +54,6 @@ module RequestInfo::Locale
         q -= 0.01
         [l, q]
       end
-
     end
 
     # Returns the remote IP of the request env
@@ -70,7 +66,6 @@ module RequestInfo::Locale
     #   where qualityfactor is a float.
     #
     def compatible_langs(accept_lanugage)
-
       # Priority in this order:
       #  - browser locale
       #  - ip locale
@@ -94,7 +89,7 @@ module RequestInfo::Locale
           l == k
         end
         if matched
-          unmatched.reject! {|j| j.first == l}
+          unmatched.reject! { |j| j.first == l }
           acc << [matched, q + 10]
         else
           acc
@@ -120,7 +115,6 @@ module RequestInfo::Locale
 
       # sort langs by quality factor
       sort_by_quality(compat)
-
     end
 
     # Returns a sorted array of locale-id and quality pairs, given one of
@@ -145,7 +139,6 @@ module RequestInfo::Locale
     # Refer to http://www.ietf.org/rfc/rfc2616.txt Section 14.4
     #
     def browser_langs(accept)
-
       return [] unless accept
 
       # obtain languages and split quality factor
@@ -175,11 +168,9 @@ module RequestInfo::Locale
 
       # sort langs by quality factor
       sort_by_quality(langs)
-
     rescue
       # Return empty array if something bad happened
       []
     end
-
   end
 end

@@ -3,9 +3,7 @@ require "request_info/locale"
 require "i18n"
 
 class RequestInfo::LocaleDetector < RequestInfo::Detector
-
   def detect(env)
-
     @@old_locale = ::I18n.locale
 
     # Find compatible locales
@@ -27,12 +25,12 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
     #
     # Note 2: we clear off this modification in after_app
     locale = unless compat.empty?
-      env["request_info.locale.detected"] =
-        ::I18n.locale =
-        compat.first.first
-    else
-      # If we are not compatible with any detected locales, use default locale.
-      ::I18n.default_locale.to_s
+               env["request_info.locale.detected"] =
+                 ::I18n.locale =
+                   compat.first.first
+             else
+               # If we are not compatible with any detected locales, use default locale.
+               ::I18n.default_locale.to_s
     end
 
     {
@@ -55,6 +53,4 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
   def accept_language(env)
     env["HTTP_ACCEPT_LANGUAGE"]
   end
-
 end
-

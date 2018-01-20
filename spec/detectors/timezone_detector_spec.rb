@@ -59,7 +59,7 @@ RSpec.describe RequestInfo::TimezoneDetector do
   end
 
   context "when IP location could be determined, but time zone info " +
-      "is missing (like when using GeoIP lite data base)" do
+    "is missing (like when using GeoIP lite data base)" do
     let(:ipinfo) { { "country" => "Poland", "country_code" => "PL" } }
     let(:expected_timezone_id) { nil }
     let(:expected_timezone_offset) { nil }

@@ -6,7 +6,6 @@ require "request_info/locale_detector"
 # Rack middleware to process all specified detectors and sets results for the
 # current thread
 class RequestInfo::DetectorApp
-
   class << self
     attr_accessor :detectors
   end
@@ -25,11 +24,9 @@ class RequestInfo::DetectorApp
         self.class.detectors << d
       end
     end
-
   end
 
   def call(env)
-
     rescue_failed do
       detect_results(env)
     end
@@ -69,9 +66,7 @@ class RequestInfo::DetectorApp
           v
         )
       end unless res.nil?
-
     end
-
   end
 
   # Runs each detector's "after_app" method after the app has run.
@@ -82,11 +77,8 @@ class RequestInfo::DetectorApp
   # Another usage is to set headers or status used to respond to the client.
   #
   def clean_detection(*args)
-
     self.class.detectors.each do |d|
       d.instance.after_app(*args)
     end
-
   end
-
 end

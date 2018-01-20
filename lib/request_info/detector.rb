@@ -38,6 +38,4 @@ class RequestInfo::Detector
   # `after_app' is run after Rails processing on a request
   def after_app(status, headers, body)
   end
-
 end
-
