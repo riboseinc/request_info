@@ -16,7 +16,8 @@ RSpec.describe RequestInfo::TimezoneDetector do
     before do
       # expect(RequestInfo::Results).to receive(:new)
       # binding.pry
-      allow_any_instance_of(RequestInfo::Results).to receive(:ipinfo).and_return(ipinfo)
+      allow_any_instance_of(RequestInfo::Results).
+        to receive(:ipinfo).and_return(ipinfo)
     end
 
     it "detects #{time_zone_description} time zone identifier" do
@@ -60,7 +61,13 @@ RSpec.describe RequestInfo::TimezoneDetector do
 
   context "when IP location could be determined, but time zone info " +
     "is missing (like when using GeoIP lite data base)" do
-    let(:ipinfo) { { "country" => "Poland", "country_code" => "PL" } }
+    let(:ipinfo) do
+      {
+        "country" => "Poland",
+        "country_code" => "PL",
+      }
+    end
+
     let(:expected_timezone_id) { nil }
     let(:expected_timezone_offset) { nil }
     let(:expected_timezone_description) { nil }
@@ -70,7 +77,14 @@ RSpec.describe RequestInfo::TimezoneDetector do
   end
 
   context "when IP location and time zone have been determined" do
-    let(:ipinfo) { { "country" => "Poland", "country_code" => "PL", "time_zone" => expected_timezone_id } }
+    let(:ipinfo) do
+      {
+        "country" => "Poland",
+        "country_code" => "PL",
+        "time_zone" => expected_timezone_id,
+      }
+    end
+
     let(:expected_timezone_id) { "Europe/Warsaw" }
     let(:expected_timezone_offset) { 1.0 }
     let(:expected_timezone_description) { "GMT(+1.0) Europe - Warsaw" }
