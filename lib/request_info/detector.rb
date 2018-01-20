@@ -3,7 +3,7 @@
 # A Detector is given the app's env
 # A Detector must implement the 'detect' method.
 #
-require 'singleton'
+require "singleton"
 
 class RequestInfo::Detector
   include ::Singleton

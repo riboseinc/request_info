@@ -1,7 +1,7 @@
-require 'request_info/detectors'
-require 'request_info/ip_detector'
-require 'request_info/timezone_detector'
-require 'request_info/locale_detector'
+require "request_info/detectors"
+require "request_info/ip_detector"
+require "request_info/timezone_detector"
+require "request_info/locale_detector"
 
 # Rack middleware to process all specified detectors and sets results for the
 # current thread

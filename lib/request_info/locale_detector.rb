@@ -1,6 +1,6 @@
-require 'request_info/detector'
-require 'request_info/locale'
-require 'i18n'
+require "request_info/detector"
+require "request_info/locale"
+require "i18n"
 
 class RequestInfo::LocaleDetector < RequestInfo::Detector
 
@@ -27,7 +27,7 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
     #
     # Note 2: we clear off this modification in after_app
     locale = unless compat.empty?
-      env['request_info.locale.detected'] =
+      env["request_info.locale.detected"] =
         ::I18n.locale =
         compat.first.first
     else
@@ -42,7 +42,7 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
 
   def after_app(status, headers, body)
     # Set header language back to the client
-    headers['Content-Language'] = RequestInfo.results.locale
+    headers["Content-Language"] = RequestInfo.results.locale
 
     # Reset our modifications after app is finished
     ::I18n.locale = @@old_locale

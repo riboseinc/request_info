@@ -1,5 +1,5 @@
-require 'csv'
-require 'singleton'
+require "csv"
+require "singleton"
 
 #
 # Provides a mapping between ISO639-1 language codes and language names
@@ -70,9 +70,9 @@ class RequestInfo::LocaleNameMap
   def language_names(locale_code)
     val = nil
 
-    s = locale_code.to_s.downcase.split('-')
+    s = locale_code.to_s.downcase.split("-")
     (s.length - 1).downto(0) do |x|
-      key = s[0..x].join('-')
+      key = s[0..x].join("-")
       val = language_name_lookup(key)
       break if val
     end

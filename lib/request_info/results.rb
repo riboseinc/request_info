@@ -1,4 +1,4 @@
-require 'ostruct'
+require "ostruct"
 
 # Use an OpenStruct to simplify results setting and handling
 module RequestInfo

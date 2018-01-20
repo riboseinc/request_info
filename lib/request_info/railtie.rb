@@ -1,5 +1,5 @@
-require 'request_info/geoip'
-require 'rails/railtie'
+require "request_info/geoip"
+require "rails/railtie"
 
 module RequestInfo
   class Railtie < ::Rails::Railtie
