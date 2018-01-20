@@ -13,7 +13,6 @@ module RequestInfo
   autoload :Timezone, "request_info/timezone"
   autoload :DetectorApp, "request_info/detector_app"
   autoload :Detectors, "request_info/detectors"
-  autoload :Detector, "request_info/detector"
   autoload :IpDetector, "request_info/ip_detector"
   autoload :LocaleDetector, "request_info/locale_detector"
   autoload :TimezoneDetector, "request_info/timezone_detector"

@@ -1,4 +1,3 @@
-require "request_info/detectors"
 require "request_info/ip_detector"
 require "request_info/timezone_detector"
 require "request_info/locale_detector"
@@ -15,14 +14,11 @@ class RequestInfo::DetectorApp
 
     # TODO: make this list of detectors available for others to add/change
     if !self.class.detectors
-      self.class.detectors = RequestInfo::Detectors.new
-      [
+      self.class.detectors = [
         RequestInfo::IpDetector,
         RequestInfo::TimezoneDetector,
         RequestInfo::LocaleDetector,
-      ].each do |d|
-        self.class.detectors << d
-      end
+      ]
     end
   end
 
