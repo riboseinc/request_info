@@ -57,8 +57,8 @@ class RequestInfo::LocaleNameMap
       ename = row[1].strip
       names = row[2..-1].reject(&:nil?).map(&:strip)
       @lc[lcode] = {
-        :native => names,
-        :en => ename
+        native: names,
+        en: ename
       }
 
     end

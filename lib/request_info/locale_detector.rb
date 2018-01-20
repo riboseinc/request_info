@@ -36,7 +36,7 @@ class RequestInfo::LocaleDetector < RequestInfo::Detector
     end
 
     {
-      :locale => locale
+      locale: locale
     }
   end
 

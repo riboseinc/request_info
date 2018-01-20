@@ -8,8 +8,8 @@ class RequestInfo::IpDetector < RequestInfo::Detector
     ip = request_ip(env)
 
     {
-      :ip => ip,
-      :ipinfo => RequestInfo::GeoIP.lookup(ip)
+      ip: ip,
+      ipinfo: RequestInfo::GeoIP.lookup(ip)
     }
   end
 
