@@ -31,7 +31,7 @@ class RequestInfo::Detector
   #   RequestInfo.results.result_key => results1,
   #   RequestInfo.results.result_key2 => results2
   #
-  def detect(env)
+  def detect(_env)
     raise NotImplementedError
   end
 
