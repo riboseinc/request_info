@@ -6,7 +6,6 @@ cache:
   - bundler
 
 before_install:
-  - sudo apt-get install -y software-properties-common
   - sudo add-apt-repository -y ppa:maxmind/ppa
   - sudo apt-get update -y
   - sudo apt-get install -y libmaxminddb0 libmaxminddb-dev mmdb-bin
