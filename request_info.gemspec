@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency("i18n")
   spec.add_dependency("maxmind_geoip2")
-  spec.add_dependency("rails", ">= 3.1.0")
+  spec.add_dependency("rails", ">= 4.1")
   spec.add_dependency("tzinfo")
 
   spec.add_development_dependency "bundler", "~> 1.13"
