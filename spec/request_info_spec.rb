@@ -77,4 +77,12 @@ RSpec.describe RequestInfo do
       expect(RequestInfo.configure { |c| c.geoipdb_path = "path" }).to be(nil)
     end
   end
+
+  describe "::preload" do
+    it "preloads GeoIP, and CountryLocaleMap classes" do
+      expect(RequestInfo::GeoIP).to receive(:setup)
+      expect(RequestInfo::CountryLocaleMap).to receive(:instance)
+      described_class.preload
+    end
+  end
 end

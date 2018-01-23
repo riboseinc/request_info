@@ -35,5 +35,10 @@ module RequestInfo
       configure if @configuration.nil?
       @configuration
     end
+
+    def preload
+      GeoIP.setup
+      CountryLocaleMap.instance
+    end
   end
 end
