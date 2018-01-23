@@ -21,7 +21,7 @@ RSpec.describe RequestInfo::Configuration do
 
     example do
       val = subject.geoipdb_path
-      expect(val).to point_to_existing_file & end_with(".mmdb")
+      expect(val).to be(nil)
     end
   end
 end
