@@ -8,6 +8,7 @@ require "request_info/results"
 require "request_info/railtie" if defined?(Rails)
 
 module RequestInfo
+  CONFIGURATION_MUTEX = Mutex.new
 
   class << self
     # Get detection results
@@ -22,9 +23,12 @@ module RequestInfo
     end
 
     def configure
-      @mutable_configuration ||= Configuration.new
-      yield @mutable_configuration if block_given?
-      @configuration = @mutable_configuration.dup.tap(&:freeze)
+      CONFIGURATION_MUTEX.synchronize do
+        @mutable_configuration ||= Configuration.new
+        yield @mutable_configuration if block_given?
+        @configuration = @mutable_configuration.dup.tap(&:freeze)
+      end
+      nil
     end
 
     def configuration
