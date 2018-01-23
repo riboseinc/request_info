@@ -5,7 +5,7 @@
 
 require "csv"
 require "singleton"
-require "request_info/config"
+require "request_info/configuration"
 
 #
 # Provides a mapping between ISO3166 country codes and RFC4646 locale

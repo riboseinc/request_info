@@ -1,5 +1,5 @@
 module RequestInfo
-  class Config
+  class Configuration
     # Path to the locale-name map csv file
     def locale_name_map_path
       @@locale_name_map_path ||= File.expand_path(

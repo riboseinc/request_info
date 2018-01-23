@@ -1,6 +1,6 @@
 require "request_info/version"
 
-require "request_info/config"
+require "request_info/configuration"
 require "request_info/detector_app"
 require "request_info/results"
 
@@ -13,7 +13,7 @@ module RequestInfo
     # Get current configuration
     def config
       Thread.current[:request_info_config] ||=
-        RequestInfo::Config.new
+        RequestInfo::Configuration.new
     end
 
     # Set configuration
