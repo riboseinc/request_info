@@ -44,5 +44,25 @@ RSpec.describe RequestInfo do
       expect(RequestInfo.configuration.geoip_path).to eq("yet/another/path")
       expect(RequestInfo.configuration.locale_map_path).to eq("final/path")
     end
+
+    example "configuration is thread-safe" do
+      threads = (1..3).each.map do |i|
+        Thread.new do
+          path = "some/path/#{i}"
+          RequestInfo.configure do |c|
+            c.geoip_path = path
+            sleep(0.01)
+          end
+          expect(RequestInfo.configuration.geoip_path).to eq(path)
+        end
+      end
+
+      threads.each(&:join)
+    end
+
+    example "::configure returns nil" do
+      # Prevent unwanted access to mutable configuration
+      expect(RequestInfo.configure { |c| c.geoip_path = "path" }).to be(nil)
+    end
   end
 end
