@@ -12,10 +12,10 @@ module RequestInfo
       app.config.middleware.use RequestInfo::DetectorApp
     end
 
-    # Setup GeoIP database after initialization since initializers may modify
+    # Preload databases after initialization since initializers may modify
     # geoipdb_path
     config.after_initialize do
-      GeoIP.setup
+      RequestInfo.preload
     end
   end
 end
