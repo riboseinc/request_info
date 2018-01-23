@@ -11,7 +11,7 @@ module RequestInfo
     def set_defaults
       self.locale_name_map_path = default_locale_name_map_path
       self.locale_map_path = default_locale_map_path
-      self.geoipdb_path = default_geoipdb_path
+      self.geoipdb_path = nil
     end
 
     def default_locale_name_map_path
@@ -20,10 +20,6 @@ module RequestInfo
 
     def default_locale_map_path
       File.expand_path("data/country_locale_map.csv", gem_root)
-    end
-
-    def default_geoipdb_path
-      "/usr/local/GeoIP/GeoIP2-City.mmdb"
     end
 
     def gem_root
