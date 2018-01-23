@@ -19,7 +19,7 @@ module RequestInfo::GeoIP
       self.database = MaxmindGeoIP2
 
       MaxmindGeoIP2.file(
-        RequestInfo.config.geoip_path,
+        RequestInfo.configuration.geoip_path,
       )
       MaxmindGeoIP2.locale("en")
 

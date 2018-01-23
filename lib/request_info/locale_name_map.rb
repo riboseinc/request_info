@@ -31,7 +31,7 @@ class RequestInfo::LocaleNameMap
 
   def initialize
     @lc = {}
-    @path = RequestInfo.config.locale_name_map_path
+    @path = RequestInfo.configuration.locale_name_map_path
 
     import_locale_name_map
   end
