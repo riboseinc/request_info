@@ -6,6 +6,18 @@ RSpec.describe RequestInfo do
   end
 
   describe "gem configuration" do
+    # Stub the RequestInfo module, and clear its class variables.
+    # As a consequence these tests:
+    # - do not affect other ones
+    # - are not affected by suite-wide gem configuration
+    before do
+      class_duplicate = RequestInfo.dup
+      class_duplicate.instance_variables.each do |ivar|
+        class_duplicate.remove_instance_variable(ivar)
+      end
+      stub_const "RequestInfo", class_duplicate
+    end
+
     example "when ::configure has not been called, ::configuration returns " +
       "an immutable frozen Configuration instance with default settings" do
 
