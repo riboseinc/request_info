@@ -10,17 +10,6 @@ require "request_info/railtie" if defined?(Rails)
 module RequestInfo
 
   class << self
-    # Get current configuration
-    def config
-      Thread.current[:request_info_config] ||=
-        RequestInfo::Configuration.new
-    end
-
-    # Set configuration
-    def config=(value)
-      Thread.current[:request_info_config] = value
-    end
-
     # Get detection results
     def results
       Thread.current[:request_info_results] ||=
