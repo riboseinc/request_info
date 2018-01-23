@@ -48,7 +48,7 @@ class RequestInfo::CountryLocaleMap
   def initialize
     @cc = {}
     @ll = {}
-    @path = RequestInfo.config.locale_map_path
+    @path = RequestInfo.configuration.locale_map_path
 
     import_locale_map
   end
