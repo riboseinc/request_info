@@ -38,6 +38,14 @@ matrix:
     - rvm: "2.5"
       gemfile: "gemfiles/Rails-head.gemfile"
 
+    - rvm: "2.5"
+      gemfile: "gemfiles/Rack-2.gemfile"
+    - rvm: "2.3"
+      gemfile: "gemfiles/Rack-1.gemfile"
+    - rvm: "2.5"
+      gemfile: "gemfiles/Rack-head.gemfile"
+
   allow_failures:
     - rvm: "ruby-head"
     - gemfile: "gemfiles/Rails-head.gemfile"
+    - gemfile: "gemfiles/Rack-head.gemfile"
