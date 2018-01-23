@@ -23,7 +23,7 @@ module RequestInfo
     end
 
     def default_geoipdb_path
-      ENV["GEOIPDBPATH"] || "/usr/local/GeoIP/GeoIP2-City.mmdb"
+      "/usr/local/GeoIP/GeoIP2-City.mmdb"
     end
 
     def gem_root
