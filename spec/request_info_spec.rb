@@ -11,7 +11,7 @@ RSpec.describe RequestInfo do
 
       retval = RequestInfo.configuration
       expect(retval).to be_a(RequestInfo::Configuration) & be_frozen
-      %i[locale_name_map_path locale_map_path geoip_path].each do |attr_name|
+      %i[locale_name_map_path locale_map_path geoipdb_path].each do |attr_name|
         attr_val = retval.send(attr_name)
         attr_default = RequestInfo::Configuration.new.send(attr_name)
         expect(attr_val).to eq(attr_default)
@@ -24,24 +24,24 @@ RSpec.describe RequestInfo do
 
       RequestInfo.configure do |c|
         expect(c).to be_a(RequestInfo::Configuration)
-        c.geoip_path = "some/path"
-        expect(c.geoip_path).to eq("some/path")
+        c.geoipdb_path = "some/path"
+        expect(c.geoipdb_path).to eq("some/path")
       end
       current_conf = RequestInfo.configuration
       expect(current_conf).to be_a(RequestInfo::Configuration) & be_frozen
-      expect(current_conf.geoip_path).to eq("some/path")
+      expect(current_conf.geoipdb_path).to eq("some/path")
     end
 
     example "::configure may be called multiple times" do
-      RequestInfo.configure { |c| c.geoip_path = "some/path" }
+      RequestInfo.configure { |c| c.geoipdb_path = "some/path" }
       RequestInfo.configure { |c| c.locale_map_path = "different/path" }
-      expect(RequestInfo.configuration.geoip_path).to eq("some/path")
+      expect(RequestInfo.configuration.geoipdb_path).to eq("some/path")
       expect(RequestInfo.configuration.locale_map_path).to eq("different/path")
-      RequestInfo.configure { |c| c.geoip_path = "yet/another/path" }
-      expect(RequestInfo.configuration.geoip_path).to eq("yet/another/path")
+      RequestInfo.configure { |c| c.geoipdb_path = "yet/another/path" }
+      expect(RequestInfo.configuration.geoipdb_path).to eq("yet/another/path")
       expect(RequestInfo.configuration.locale_map_path).to eq("different/path")
       RequestInfo.configure { |c| c.locale_map_path = "final/path" }
-      expect(RequestInfo.configuration.geoip_path).to eq("yet/another/path")
+      expect(RequestInfo.configuration.geoipdb_path).to eq("yet/another/path")
       expect(RequestInfo.configuration.locale_map_path).to eq("final/path")
     end
 
@@ -50,10 +50,10 @@ RSpec.describe RequestInfo do
         Thread.new do
           path = "some/path/#{i}"
           RequestInfo.configure do |c|
-            c.geoip_path = path
+            c.geoipdb_path = path
             sleep(0.01)
           end
-          expect(RequestInfo.configuration.geoip_path).to eq(path)
+          expect(RequestInfo.configuration.geoipdb_path).to eq(path)
         end
       end
 
@@ -62,7 +62,7 @@ RSpec.describe RequestInfo do
 
     example "::configure returns nil" do
       # Prevent unwanted access to mutable configuration
-      expect(RequestInfo.configure { |c| c.geoip_path = "path" }).to be(nil)
+      expect(RequestInfo.configure { |c| c.geoipdb_path = "path" }).to be(nil)
     end
   end
 end

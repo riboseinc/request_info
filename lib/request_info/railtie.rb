@@ -13,7 +13,7 @@ module RequestInfo
     end
 
     # Setup GeoIP database after initialization since initializers may modify
-    # geoip_path
+    # geoipdb_path
     config.after_initialize do
       GeoIP.setup
     end

@@ -1,6 +1,6 @@
 module RequestInfo
   class Configuration
-    attr_accessor :locale_name_map_path, :locale_map_path, :geoip_path
+    attr_accessor :locale_name_map_path, :locale_map_path, :geoipdb_path
 
     def initialize
       set_defaults
@@ -11,7 +11,7 @@ module RequestInfo
     def set_defaults
       self.locale_name_map_path = default_locale_name_map_path
       self.locale_map_path = default_locale_map_path
-      self.geoip_path = default_geoip_path
+      self.geoipdb_path = default_geoipdb_path
     end
 
     def default_locale_name_map_path
@@ -22,7 +22,7 @@ module RequestInfo
       File.expand_path("data/country_locale_map.csv", gem_root)
     end
 
-    def default_geoip_path
+    def default_geoipdb_path
       ENV["GEOIPDBPATH"] || "/usr/local/GeoIP/GeoIP2-City.mmdb"
     end
 
