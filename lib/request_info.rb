@@ -20,5 +20,16 @@ module RequestInfo
     def results=(value)
       Thread.current[:request_info_results] = value
     end
+
+    def configure
+      @mutable_configuration ||= Configuration.new
+      yield @mutable_configuration if block_given?
+      @configuration = @mutable_configuration.dup.tap(&:freeze)
+    end
+
+    def configuration
+      configure if @configuration.nil?
+      @configuration
+    end
   end
 end
