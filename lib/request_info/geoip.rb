@@ -19,7 +19,7 @@ module RequestInfo::GeoIP
       self.database = MaxmindGeoIP2
 
       MaxmindGeoIP2.file(
-        RequestInfo.configuration.geoip_path,
+        RequestInfo.configuration.geoipdb_path,
       )
       MaxmindGeoIP2.locale("en")
 
@@ -30,7 +30,7 @@ module RequestInfo::GeoIP
     rescue
       Rails.logger.warn (
         "[request_info] Warning: Unable to initialize GeoIP database: " +
-        "'#{RequestInfo.config.geoip_path}'. " +
+        "'#{RequestInfo.config.geoipdb_path}'. " +
         "Check configuration."
       )
     end
