@@ -4,6 +4,7 @@ require "request_info/geoip"
 # Detects IP related information
 module RequestInfo
   module Detectors
+    # TODO Write some notes on configuration & security in README.
     class IpDetector < Base
       def detect(env)
         ip = request_ip(env)
@@ -19,27 +20,29 @@ module RequestInfo
       # Extracts the IP address from env
       #
       def request_ip(env)
-        # TODO: for testing, write tests
-        # return '203.198.150.195'
+        obtain_ip_from_rails(env) || obtain_ip_from_rack(env)
+      end
 
-        # Better way to look for the IP most likely to be the address of the
-        # actual remote client making this request.
-        # This method is provided by ActionDispatch::RemoteIp middleware
-        # This middleware assumes that there is at least one proxy sitting
-        # around and setting headers with the client's remote IP address.
-        # IF YOU DON'T USE A PROXY, THIS MAKES YOU VULNERABLE TO IP SPOOFING.
-        return env["action_dispatch.remote_ip"].calculate_ip if env["action_dispatch.remote_ip"]
+      # Obtain client's IP address from +ActionDispatch::RemoteIp+ middleware
+      # provided by Rails.
+      #
+      # This is preferred over using +Rack::Request+ because
+      # +ActionDispatch::RemoteIp+ middleware must be enabled purposely, and
+      # is more customizable (proxies whitelisting is customizable).
+      #
+      # Please read security notes before enabling +ActionDispatch::RemoteIp+
+      # middleware in your application.  It may do harm if used incorrectly:
+      # http://api.rubyonrails.org/classes/ActionDispatch/RemoteIp.html
+      def obtain_ip_from_rails(env)
+        env["action_dispatch.remote_ip"].try(:to_s)
+      end
 
-        if env["HTTP_X_FORWARDED_FOR"]
-          # The old way, getting the first IP off X_FORWARDED_FOR stack
-          # (env['HTTP_X_FORWARDED_FOR'].split(',').first), would leave us with
-          # a security hole
-          # so get the entire stack instead.
-          # ref: http://www.xyu.io/2013/07/proxies-ip-spoofing/
-          return env["HTTP_X_FORWARDED_FOR"]
-        end
-
-        env["REMOTE_ADDR"]
+      # Obtain client's IP address from +Rack::Request+.  May return proxy
+      # address if it adds a non-private IP address to +X-Forwarded-For+ header.
+      #
+      # https://github.com/rack/rack/blob/d1363a66ab217/lib/rack/request.rb#L420
+      def obtain_ip_from_rack(env)
+        Rack::Request.new(env).ip
       end
     end
   end
