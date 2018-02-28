@@ -40,8 +40,10 @@ matrix:
 
     - rvm: "2.5"
       gemfile: "gemfiles/Rack-2.gemfile"
+      env: WITHOUT_RAILS=1
     - rvm: "2.3"
       gemfile: "gemfiles/Rack-1.gemfile"
+      env: WITHOUT_RAILS=1
     - rvm: "2.5"
       gemfile: "gemfiles/Rack-head.gemfile"
 
