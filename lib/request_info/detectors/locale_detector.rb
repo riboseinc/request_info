@@ -27,13 +27,14 @@ module RequestInfo
         #
         # Note 2: we clear off this modification in after_app
         locale = unless compat.empty?
-                     ::I18n.locale =
                        compat.first.first
                  else
                    # If we are not compatible with any detected locales, use
                    # default locale.
                    ::I18n.default_locale.to_s
         end
+
+        ::I18n.locale = locale
 
         {
           locale: locale,
