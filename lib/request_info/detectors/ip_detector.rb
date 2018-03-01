@@ -7,12 +7,13 @@ module RequestInfo
     # TODO Write some notes on configuration & security in README.
     class IpDetector < Base
       def detect(env)
+        results = RequestInfo.results
         ip = request_ip(env)
 
-        {
-          ip: ip,
-          ipinfo: RequestInfo::GeoIP.instance.lookup(ip),
-        }
+        results.ip = ip
+        results.ipinfo = RequestInfo::GeoIP.instance.lookup(ip)
+
+        results
       end
 
       private

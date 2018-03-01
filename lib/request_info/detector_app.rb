@@ -39,14 +39,7 @@ class RequestInfo::DetectorApp
     RequestInfo.results = RequestInfo::Results.new
 
     self.class.detectors.each do |d|
-      res = d.instance.detect(env)
-
-      res.each_pair do |k, v|
-        RequestInfo.results.send(
-          "#{k}=",
-          v,
-        )
-      end unless res.nil?
+      d.instance.detect(env)
     end
   end
 
