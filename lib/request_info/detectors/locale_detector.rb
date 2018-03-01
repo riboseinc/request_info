@@ -6,8 +6,6 @@ module RequestInfo
   module Detectors
     class LocaleDetector < Base
       def detect(env)
-        @@old_locale = ::I18n.locale
-
         # Find compatible locales
         compat = RequestInfo::Locale.compatible_langs(
           accept_language(env),
@@ -31,11 +29,15 @@ module RequestInfo
         # default locale.
         locale = compat.empty? ? ::I18n.default_locale.to_s : compat.first.first
 
-        ::I18n.locale = locale
-
         {
           locale: locale,
         }
+      end
+
+      def before_app(env)
+        detected_locale = RequestInfo.results.locale
+        @@old_locale = ::I18n.locale
+        ::I18n.locale = detected_locale
       end
 
       def after_app(_status, headers, _body)
