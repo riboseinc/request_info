@@ -24,6 +24,7 @@ class RequestInfo::DetectorApp
 
   def call(env)
     detect_results(env)
+    prepare_for_app_call(env)
     status, headers, body = @app.call(env)
     clean_detection(status, headers, body)
     [status, headers, body]
@@ -46,6 +47,12 @@ class RequestInfo::DetectorApp
           v,
         )
       end unless res.nil?
+    end
+  end
+
+  def prepare_for_app_call(env)
+    self.class.detectors.each do |d|
+      d.instance.before_app(env)
     end
   end
 

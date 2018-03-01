@@ -37,6 +37,9 @@ module RequestInfo
         raise NotImplementedError
       end
 
+      def before_app(_env)
+      end
+
       # `after_app' is run after Rails processing on a request
       def after_app(status, headers, body)
       end
