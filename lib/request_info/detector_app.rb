@@ -23,26 +23,10 @@ class RequestInfo::DetectorApp
   end
 
   def call(env)
-    rescue_failed do
-      detect_results(env)
-    end
-
+    detect_results(env)
     status, headers, body = @app.call(env)
-
-    rescue_failed do
-      clean_detection(status, headers, body)
-    end
-
+    clean_detection(status, headers, body)
     [status, headers, body]
-  end
-
-  # If our code goes awry still let Rails do its thing.
-  def rescue_failed
-    yield if block_given?
-  rescue
-    Rails.logger.error "[request_info] died in DetectorApp due to:"
-    Rails.logger.error $!.inspect
-    Rails.logger.error $!.backtrace.pretty_inspect
   end
 
   private
