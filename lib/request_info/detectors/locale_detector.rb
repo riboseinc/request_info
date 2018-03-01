@@ -27,7 +27,6 @@ module RequestInfo
         #
         # Note 2: we clear off this modification in after_app
         locale = unless compat.empty?
-                   env["request_info.locale.detected"] =
                      ::I18n.locale =
                        compat.first.first
                  else
