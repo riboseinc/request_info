@@ -27,34 +27,10 @@ class RequestInfo::DetectorApp
   end
 
   def call(env)
-    detect_results(env)
-    prepare_for_app_call(env)
-    status, headers, body = @app.call(env)
-    clean_detection(status, headers, body)
-    [status, headers, body]
-  end
-
-  private
-
-  # Runs all specified detectors in the same order on a request, and sets the
-  # results to RequestInfo.results
-  #
-  def detect_results(env)
     analyzer.detect(env)
-  end
-
-  def prepare_for_app_call(env)
     analyzer.before_app(env)
-  end
-
-  # Runs each detector's "after_app" method after the app has run.
-  #
-  # A Detector may use this to reset any transient states changed by itself
-  # during detection.
-  #
-  # Another usage is to set headers or status used to respond to the client.
-  #
-  def clean_detection(*args)
-    analyzer.after_app(*args)
+    status, headers, body = @app.call(env)
+    analyzer.after_app(status, headers, body)
+    [status, headers, body]
   end
 end
