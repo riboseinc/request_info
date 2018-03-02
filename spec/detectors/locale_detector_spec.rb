@@ -25,12 +25,6 @@ RSpec.describe RequestInfo::Detectors::LocaleDetector do
     I18n.available_locales = available_locales
   end
 
-  it "is a singleton" do
-    expect(described_class).to respond_to(:instance)
-    expect(described_class.instance).to be_a(described_class)
-    expect(described_class.instance).to be(described_class.instance)
-  end
-
   shared_context "locale examples" do |locale_description|
     it "detects #{locale_description} locale" do
       expectations_on_inner_app do

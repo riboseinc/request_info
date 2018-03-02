@@ -1,11 +1,12 @@
-require "request_info/detectors/base"
 require "request_info/locale"
 require "i18n"
 
 module RequestInfo
   module Detectors
-    class LocaleDetector < Base
+    module LocaleDetector
       def detect(env)
+        super
+
         results = RequestInfo.results
 
         # Find compatible locales
@@ -39,9 +40,12 @@ module RequestInfo
         detected_locale = RequestInfo.results.locale
         @@old_locale = ::I18n.locale
         ::I18n.locale = detected_locale
+        super
       end
 
       def after_app(_status, headers, _body)
+        super
+
         # Set header language back to the client
         headers["Content-Language"] = RequestInfo.results.locale
 

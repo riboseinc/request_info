@@ -6,12 +6,6 @@ RSpec.describe RequestInfo::Detectors::TimezoneDetector do
   # Freeze time in winter to avoid any possible DST issues.
   before { Timecop.freeze 2018, 1 }
 
-  it "is a singleton" do
-    expect(described_class).to respond_to(:instance)
-    expect(described_class.instance).to be_a(described_class)
-    expect(described_class.instance).to be(described_class.instance)
-  end
-
   shared_context "time zone examples" do |time_zone_description|
     before do
       # expect(RequestInfo::Results).to receive(:new)
