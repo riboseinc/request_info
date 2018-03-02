@@ -2,6 +2,7 @@ require "request_info/version"
 
 require "request_info/configuration"
 require "request_info/detector_app"
+require "request_info/env_analyzer"
 require "request_info/results"
 
 # Optionally use railtie if Rails is available
