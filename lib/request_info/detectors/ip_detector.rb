@@ -1,12 +1,13 @@
-require "request_info/detectors/base"
 require "request_info/geoip"
 
 # Detects IP related information
 module RequestInfo
   module Detectors
     # TODO Write some notes on configuration & security in README.
-    class IpDetector < Base
+    module IpDetector
       def detect(env)
+        super
+
         results = RequestInfo.results
         ip = request_ip(env)
 

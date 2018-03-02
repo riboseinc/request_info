@@ -30,12 +30,6 @@ RSpec.describe RequestInfo::Detectors::IpDetector do
   # See full list at: https://en.wikipedia.org/wiki/Reserved_IP_addresses
   let(:reserved_ip) { "198.51.100.16" }
 
-  it "is a singleton" do
-    expect(described_class).to respond_to(:instance)
-    expect(described_class.instance).to be_a(described_class)
-    expect(described_class.instance).to be(described_class.instance)
-  end
-
   shared_context "ip examples" do
     it "detects user IP address" do
       expectations_on_inner_app do
