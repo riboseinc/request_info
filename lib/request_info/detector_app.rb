@@ -9,6 +9,8 @@ class RequestInfo::DetectorApp
     attr_accessor :detectors
   end
 
+  attr_reader :analyzer
+
   def initialize(app)
     @app = app
 
@@ -20,6 +22,8 @@ class RequestInfo::DetectorApp
         RequestInfo::Detectors::LocaleDetector,
       ]
     end
+
+    @analyzer = ::RequestInfo::EnvAnalyzer.new(self.class.detectors)
   end
 
   def call(env)
@@ -36,17 +40,11 @@ class RequestInfo::DetectorApp
   # results to RequestInfo.results
   #
   def detect_results(env)
-    RequestInfo.results = RequestInfo::Results.new
-
-    self.class.detectors.each do |d|
-      d.instance.detect(env)
-    end
+    analyzer.detect(env)
   end
 
   def prepare_for_app_call(env)
-    self.class.detectors.each do |d|
-      d.instance.before_app(env)
-    end
+    analyzer.before_app(env)
   end
 
   # Runs each detector's "after_app" method after the app has run.
@@ -57,8 +55,6 @@ class RequestInfo::DetectorApp
   # Another usage is to set headers or status used to respond to the client.
   #
   def clean_detection(*args)
-    self.class.detectors.each do |d|
-      d.instance.after_app(*args)
-    end
+    analyzer.after_app(*args)
   end
 end
