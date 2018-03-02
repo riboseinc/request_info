@@ -28,9 +28,8 @@ class RequestInfo::DetectorApp
 
   def call(env)
     analyzer.detect(env)
-    analyzer.before_app(env)
-    status, headers, body = @app.call(env)
-    analyzer.after_app(status, headers, body)
-    [status, headers, body]
+    analyzer.wrap_app do
+      @app.call(env)
+    end
   end
 end
