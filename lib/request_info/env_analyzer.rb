@@ -8,10 +8,8 @@ module RequestInfo
       RequestInfo.results = RequestInfo::Results.new
     end
 
-    def before_app(*args)
-    end
-
-    def after_app(*args)
+    def wrap_app
+      yield
     end
   end
 end

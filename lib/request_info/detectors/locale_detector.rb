@@ -36,21 +36,20 @@ module RequestInfo
         results
       end
 
-      def before_app(env)
+      def wrap_app
         detected_locale = RequestInfo.results.locale
         @@old_locale = ::I18n.locale
         ::I18n.locale = detected_locale
-        super
-      end
 
-      def after_app(_status, headers, _body)
-        super
+        status, headers, body = super
 
         # Set header language back to the client
         headers["Content-Language"] = RequestInfo.results.locale
 
         # Reset our modifications after app is finished
         ::I18n.locale = @@old_locale
+
+        [status, headers, body]
       end
 
       private
