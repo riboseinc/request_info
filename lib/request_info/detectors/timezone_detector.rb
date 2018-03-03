@@ -13,7 +13,7 @@ module RequestInfo
         # Rails.logger.warn "[request_info] geoip results #{ipinfo.inspect}"
 
         # Stop processing if no ipinfo
-        return results unless ipinfo && ipinfo["country"]
+        return results unless ipinfo
 
         # Timezone found in GeoIP.
         tzinfo_id = ipinfo["time_zone"]
