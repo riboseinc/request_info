@@ -13,8 +13,6 @@ module RequestInfo
 
         results.ip = ip
         results.ipinfo = RequestInfo::GeoIP.instance.lookup(ip)
-
-        results
       end
 
       private

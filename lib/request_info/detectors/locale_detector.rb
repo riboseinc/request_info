@@ -33,7 +33,6 @@ module RequestInfo
         locale = compat.empty? ? ::I18n.default_locale.to_s : compat.first.first
 
         results.locale = locale
-        results
       end
 
       def wrap_app
