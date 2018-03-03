@@ -4,7 +4,7 @@ module RequestInfo
       detectors.each { |d| extend(d) }
     end
 
-    def detect(*args)
+    def analyze(*args)
       RequestInfo.results = RequestInfo::Results.new
     end
 

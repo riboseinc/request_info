@@ -4,7 +4,7 @@ module RequestInfo
   module Detectors
     # Detects Timezone related information
     module TimezoneDetector
-      def detect(_env)
+      def analyze(_env)
         super
 
         results = RequestInfo.results

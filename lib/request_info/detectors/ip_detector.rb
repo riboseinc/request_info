@@ -5,7 +5,7 @@ module RequestInfo
   module Detectors
     # TODO Write some notes on configuration & security in README.
     module IpDetector
-      def detect(env)
+      def analyze(env)
         super
 
         results = RequestInfo.results
