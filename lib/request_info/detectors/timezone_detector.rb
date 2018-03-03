@@ -27,20 +27,10 @@ module RequestInfo
       private
 
       def get_tzinfo_from_ipinfo(ipinfo)
-        # Stop processing if no ipinfo
-        return nil unless ipinfo
-
         # Timezone found in GeoIP.
-        tzinfo_id = ipinfo["time_zone"]
-        # Stop processing if no valid timezone
-        return nil unless tzinfo_id
-
-        tzinfo = TZInfo::Timezone.get(tzinfo_id)
-
-        # Stop processing if tzinfo isn't found as a TimeZone
-        return nil unless tzinfo
-
-        return [tzinfo_id, tzinfo]
+        tzinfo_id = ipinfo && ipinfo["time_zone"]
+        tzinfo = tzinfo_id && TZInfo::Timezone.get(tzinfo_id)
+        tzinfo ? [tzinfo_id, tzinfo] : nil
       rescue TZInfo::InvalidTimezoneIdentifier
         nil
       end
