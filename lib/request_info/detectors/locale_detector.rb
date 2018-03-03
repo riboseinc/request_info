@@ -17,24 +17,7 @@ module RequestInfo
           accept_language(env),
         )
 
-        # puts "Compatible locales! #{compat.inspect}"
-
-        # Set our locale in multiple places, including in env, I18n.locale, and
-        # in this rack middleware.
-        #
-        # The locale can be accessed in Rails in these ways:
-        #   I18n.locale
-        #   request.env['request_info.locale.detected']
-        #
-        # Note: compat is a 2-d array with quality factors so we take the first
-        # of the first.
-        #
-        # Note 2: we clear off this modification in after_app
-
-        # If we are not compatible with any detected locales, use
-        # default locale.
         locale = compat.empty? ? ::I18n.default_locale.to_s : compat.first.first
-
         results.locale = locale
       end
 
