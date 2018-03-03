@@ -27,7 +27,7 @@ class RequestInfo::DetectorApp
   end
 
   def call(env)
-    analyzer.detect(env)
+    analyzer.analyze(env)
     analyzer.wrap_app do
       @app.call(env)
     end

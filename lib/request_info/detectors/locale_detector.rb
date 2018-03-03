@@ -4,7 +4,7 @@ require "i18n"
 module RequestInfo
   module Detectors
     module LocaleDetector
-      def detect(env)
+      def analyze(env)
         super
 
         results = RequestInfo.results
