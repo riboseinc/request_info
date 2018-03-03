@@ -1,4 +1,5 @@
 require "maxmind_geoip2"
+require "singleton"
 
 # Our interface to GeoIP.
 #
