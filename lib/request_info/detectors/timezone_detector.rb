@@ -8,8 +8,7 @@ module RequestInfo
         super
 
         results = RequestInfo.results
-        ipinfo = results.ipinfo
-        tzinfo_id, tzinfo = get_tzinfo_from_ipinfo(ipinfo)
+        tzinfo_id, tzinfo = get_tzinfo_from_ipinfo(results.ipinfo)
         return nil unless tzinfo_id && tzinfo
 
         # Total offset is UTC + DST
