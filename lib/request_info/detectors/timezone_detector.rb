@@ -26,8 +26,9 @@ module RequestInfo
 
       private
 
+      # Return time zone identifier and object basing on what has been found by
+      # GeoIP.
       def get_tzinfo_from_ipinfo(ipinfo)
-        # Timezone found in GeoIP.
         tzinfo_id = ipinfo && ipinfo["time_zone"]
         tzinfo = tzinfo_id && TZInfo::Timezone.get(tzinfo_id)
         tzinfo ? [tzinfo_id, tzinfo] : nil
