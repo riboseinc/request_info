@@ -11,11 +11,9 @@ module RequestInfo
         tzinfo_id, tzinfo = get_tzinfo_from_ipinfo(results.ipinfo)
         return nil unless tzinfo_id && tzinfo
 
-        total_offset = calculate_utc_offset(tzinfo)
-
         results.timezone = tzinfo
         results.timezone_id = tzinfo_id
-        results.timezone_offset = total_offset
+        results.timezone_offset = calculate_utc_offset(tzinfo)
         results.timezone_desc = tz_description(tzinfo)
 
         results
