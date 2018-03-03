@@ -9,7 +9,7 @@ module RequestInfo
 
         results = RequestInfo.results
         tzinfo_id, tzinfo = get_tzinfo_from_ipinfo(results.ipinfo)
-        return nil unless tzinfo_id && tzinfo
+        return unless tzinfo_id && tzinfo
 
         results.timezone = tzinfo
         results.timezone_id = tzinfo_id
