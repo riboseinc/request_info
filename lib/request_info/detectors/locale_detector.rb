@@ -17,7 +17,7 @@ module RequestInfo
           accept_language(env),
         )
 
-        locale = compat.empty? ? ::I18n.default_locale.to_s : compat.first.first
+        locale = compat.empty? ? default_locale : compat.first.first
         results.locale = locale
       end
 
@@ -43,6 +43,10 @@ module RequestInfo
       #
       def accept_language(env)
         env["HTTP_ACCEPT_LANGUAGE"]
+      end
+
+      def default_locale
+        ::I18n.default_locale.to_s
       end
     end
   end
