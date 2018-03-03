@@ -38,9 +38,9 @@ module RequestInfo
 
       # TODO: i18n this
       def tz_description(tzinfo)
-        total_offset = calculate_utc_offset(tzinfo)
+        offset = calculate_utc_offset(tzinfo)
 
-        "GMT(#{total_offset > 0 ? '+' : ''}#{total_offset}) " +
+        "GMT(#{offset > 0 ? '+' : ''}#{offset}) " +
           "#{tzinfo.friendly_identifier}"
       end
     end
