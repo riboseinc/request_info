@@ -9,18 +9,8 @@ module RequestInfo
 
         results = RequestInfo.results
         ipinfo = results.ipinfo
-
-        # Stop processing if no ipinfo
-        return results unless ipinfo
-
-        # Timezone found in GeoIP.
-        tzinfo_id = ipinfo["time_zone"]
-        # Stop processing if no valid timezone
-        return results unless tzinfo_id
-
-        tzinfo = TZInfo::Timezone.get(tzinfo_id) rescue nil
-        # Stop processing if tzinfo isn't found as a TimeZone
-        return results unless tzinfo
+        tzinfo_id, tzinfo = get_tzinfo_from_ipinfo(ipinfo)
+        return nil unless tzinfo_id && tzinfo
 
         # Total offset is UTC + DST
         total_offset = tzinfo.current_period.utc_total_offset / 3600.0
@@ -33,6 +23,24 @@ module RequestInfo
           "#{tzinfo.friendly_identifier}"
 
         results
+      end
+
+      private
+
+      def get_tzinfo_from_ipinfo(ipinfo)
+        # Stop processing if no ipinfo
+        return nil unless ipinfo
+
+        # Timezone found in GeoIP.
+        tzinfo_id = ipinfo["time_zone"]
+        # Stop processing if no valid timezone
+        return nil unless tzinfo_id
+
+        tzinfo = TZInfo::Timezone.get(tzinfo_id) rescue nil
+        # Stop processing if tzinfo isn't found as a TimeZone
+        return nil unless tzinfo
+
+        return [tzinfo_id, tzinfo]
       end
     end
   end
