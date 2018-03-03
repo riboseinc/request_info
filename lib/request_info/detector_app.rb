@@ -1,3 +1,4 @@
+require "request_info/detectors/browser_detector"
 require "request_info/detectors/ip_detector"
 require "request_info/detectors/timezone_detector"
 require "request_info/detectors/locale_detector"
@@ -18,6 +19,7 @@ class RequestInfo::DetectorApp
     if !self.class.detectors
       self.class.detectors = [
         RequestInfo::Detectors::IpDetector,
+        RequestInfo::Detectors::BrowserDetector,
         RequestInfo::Detectors::TimezoneDetector,
         RequestInfo::Detectors::LocaleDetector,
       ]
