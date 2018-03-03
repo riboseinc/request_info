@@ -15,8 +15,6 @@ module RequestInfo
         results.timezone_id = tzinfo_id
         results.timezone_offset = calculate_utc_offset(tzinfo)
         results.timezone_desc = tz_description(tzinfo)
-
-        results
       end
 
       private
