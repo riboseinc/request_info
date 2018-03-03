@@ -11,8 +11,7 @@ module RequestInfo
         tzinfo_id, tzinfo = get_tzinfo_from_ipinfo(results.ipinfo)
         return nil unless tzinfo_id && tzinfo
 
-        # Total offset is UTC + DST
-        total_offset = tzinfo.current_period.utc_total_offset / 3600.0
+        total_offset = calculate_utc_offset(tzinfo)
 
         results.timezone = tzinfo
         results.timezone_id = tzinfo_id
@@ -34,6 +33,11 @@ module RequestInfo
         tzinfo ? [tzinfo_id, tzinfo] : nil
       rescue TZInfo::InvalidTimezoneIdentifier
         nil
+      end
+
+      # Total offset is UTC + DST
+      def calculate_utc_offset(tzinfo)
+        tzinfo.current_period.utc_total_offset / 3600.0
       end
     end
   end
