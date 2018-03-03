@@ -10,8 +10,6 @@ module RequestInfo
         results = RequestInfo.results
         ipinfo = results.ipinfo
 
-        # Rails.logger.warn "[request_info] geoip results #{ipinfo.inspect}"
-
         # Stop processing if no ipinfo
         return results unless ipinfo
 
@@ -23,8 +21,6 @@ module RequestInfo
         tzinfo = TZInfo::Timezone.get(tzinfo_id) rescue nil
         # Stop processing if tzinfo isn't found as a TimeZone
         return results unless tzinfo
-
-        # Rails.logger.warn "[request_info] geoip results tzinfo #{tzinfo}"
 
         # Total offset is UTC + DST
         total_offset = tzinfo.current_period.utc_total_offset / 3600.0
