@@ -9,7 +9,7 @@ class RequestInfo::DetectorApp
     attr_accessor :detectors
   end
 
-  attr_reader :analyzer
+  attr_reader :analyzer, :app
 
   def initialize(app)
     @app = app
@@ -29,7 +29,7 @@ class RequestInfo::DetectorApp
   def call(env)
     analyzer.analyze(env)
     analyzer.wrap_app do
-      @app.call(env)
+      app.call(env)
     end
   end
 end
