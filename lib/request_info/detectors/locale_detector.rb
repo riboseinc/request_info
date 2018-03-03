@@ -38,7 +38,7 @@ module RequestInfo
 
       def wrap_app
         detected_locale = RequestInfo.results.locale
-        @@old_locale = ::I18n.locale
+        previous_locale = ::I18n.locale
         ::I18n.locale = detected_locale
 
         status, headers, body = super
@@ -47,7 +47,7 @@ module RequestInfo
         headers["Content-Language"] = RequestInfo.results.locale
 
         # Reset our modifications after app is finished
-        ::I18n.locale = @@old_locale
+        ::I18n.locale = previous_locale
 
         [status, headers, body]
       end
