@@ -35,11 +35,14 @@ module RequestInfo
         # Stop processing if no valid timezone
         return nil unless tzinfo_id
 
-        tzinfo = TZInfo::Timezone.get(tzinfo_id) rescue nil
+        tzinfo = TZInfo::Timezone.get(tzinfo_id)
+
         # Stop processing if tzinfo isn't found as a TimeZone
         return nil unless tzinfo
 
         return [tzinfo_id, tzinfo]
+      rescue TZInfo::InvalidTimezoneIdentifier
+        nil
       end
     end
   end
