@@ -1,8 +1,3 @@
-# Confidential and proprietary trade secret material of Ribose, Inc.
-# (c) 2012 Ribose, Inc. as unpublished work.
-#
-#
-
 require "csv"
 require "singleton"
 require "request_info/configuration"
