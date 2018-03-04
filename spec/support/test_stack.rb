@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 require "action_dispatch/middleware/stack"
 
 RSpec.shared_context "test stack" do

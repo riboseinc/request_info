@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 require "request_info/version"
 
 require "request_info/configuration"

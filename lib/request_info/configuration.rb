@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 module RequestInfo
   class Configuration
     attr_accessor :locale_name_map_path, :locale_map_path, :geoipdb_path

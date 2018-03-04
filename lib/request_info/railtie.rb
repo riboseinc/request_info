@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 require "request_info/detector_app"
 require "request_info/geoip"
 require "rails/railtie"

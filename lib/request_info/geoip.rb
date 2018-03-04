@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 require "maxmind_geoip2"
 require "singleton"
 
