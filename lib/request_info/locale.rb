@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 # RequestInfo::Locale is used to detect the remote request's locale in
 # the following order:
 #   1. Browser http_accept_header

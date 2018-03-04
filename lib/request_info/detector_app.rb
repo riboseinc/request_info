@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 require "request_info/detectors/browser_detector"
 require "request_info/detectors/ip_detector"
 require "request_info/detectors/timezone_detector"

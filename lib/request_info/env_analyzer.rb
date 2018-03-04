@@ -1,3 +1,6 @@
+# (c) Copyright 2017 Ribose Inc.
+#
+
 module RequestInfo
   class EnvAnalyzer
     def initialize(detectors)
