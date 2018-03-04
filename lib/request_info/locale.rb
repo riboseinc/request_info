@@ -1,6 +1,8 @@
 # (c) Copyright 2017 Ribose Inc.
 #
 
+require "request_info/country_locale_map"
+
 # RequestInfo::Locale is used to detect the remote request's locale in
 # the following order:
 #   1. Browser http_accept_header
@@ -21,8 +23,6 @@
 # IP detection when we sort compatible locales so the order is
 # preserved.
 #
-
-require "request_info/country_locale_map"
 
 module RequestInfo::Locale
   class << self
