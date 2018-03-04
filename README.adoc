@@ -4,9 +4,20 @@
 image:https://img.shields.io/travis/riboseinc/request_info/master.svg["Build Status", link="https://travis-ci.org/riboseinc/request_info"]
 image:https://img.shields.io/codecov/c/github/riboseinc/request_info.svg["Test Coverage", link="https://codecov.io/gh/riboseinc/request_info"]
 
-== Installation
+Request Info is a Rack middleware which analyzes client's IP address and HTTP
+headers in order to provide detailed information about that client,
+particularly:
 
-Add this line to your application's `Gemfile`:
+- IP address
+- approximated location (basing on IP)
+- time zone (basing on location)
+- preferred locale (basing on `Accept-Language` header and location)
+
+== Usage
+
+=== Installation
+
+Then add this line to your application's `Gemfile`:
 
 [source,ruby]
 ----
@@ -25,9 +36,117 @@ Or install it yourself as:
 gem install request_info
 ----
 
-== Usage
+=== Getting started
 
-TODO
+Simply set up a middleware in `config/application.rb` like that:
+
+[source,ruby]
+----
+Rails.application.configure do
+  config.middleware.use RequestInfo::DetectorApp
+end
+----
+
+If you have `ActionDispatch::RemoteIp` in your middleware stack, then the
+`RequestInfo::DetectorApp` should be inserted after it.  Please do not add
+`ActionDispatch::RemoteIp` to your middleware stack without considering
+potential security issues described in
+http://api.rubyonrails.org/classes/ActionDispatch/RemoteIp.html[Rails documentation].
+
+Read more about configuring the middleware stack in
+http://guides.rubyonrails.org/rails_on_rack.html[Rails Guides].
+
+Detection results are saved as fiber-local variable which can be conveniently
+accessed later via `RequestInfo.results` method:
+
+[source,ruby]
+----
+RequestInfo.results.class # => RequestInfo::Results
+RequestInfo.results.ip # => "192.0.2.27"
+RequestInfo.results.timezone # => #<TZInfo::DataTimezone: Asia/Hong_Kong>
+----
+
+=== IP geolocalization
+
+This gem can use MaxMind IP intelligence databases for IP address
+geolocalization.  It is optional, but several detections rely on it.
+
+1. Make sure that `libmaxminddb` is available.  You'll find detailed
+instructions https://github.com/maxmind/libmaxminddb[here].
+
+2. Add https://rubygems.org/gems/maxmind_geoip2[`maxmind_geoip2`] gem to your
+Gemfile.
+
+3. Download a City or Country database in binary format from
+https://dev.maxmind.com/geoip[Maxmind].  Both free of charge GeoLite2, and more
+detailed but paid GeoIP2 databases will work.
+
+4. Configure database path
++
+[source,ruby]
+----
+RequestInfo.configure do |config|
+  config.geoip2_db_path = "path/to/downloaded/mmdb/database"
+end
+----
+
+=== Detections
+
+As mentioned above, analysis results are accessible via `RequestInfo.results`
+method.  The object returned by this method responds to following getters:
+
+[cols="1,3" options="header"]
+|===============================================================================
+| Field
+| Description
+
+2+^h| Browser detections
+
+| `browser`
+| A `Browser` object which holds details about user agent.  See `browser` gem
+https://github.com/fnando/browser[documentation] for more details.
+
+2+^h| IP detections
+
+| `ip`
+| Client's remote IP address which is obtained either from
+http://api.rubyonrails.org/classes/ActionDispatch/RemoteIp.html[`ActionDispatch::RemoteIp`]
+middleware (if available), or
+http://www.rubydoc.info/gems/rack/Rack/Request/Helpers#ip-instance_method[`Rack::Request`]
+object (otherwise).
+
+| `ipinfo`
+| A hash with detailed information about user location which is guessed by
+looking at client's IP address (requires GeoIP2 or GeoLite2).
+
+2+^h| Locale detections
+
+| `locale`
+| Best-matching locale from available ones.  First `Accept-Language` header is
+checked, then locales popular in client's country (according to IP address,
+requires GeoIP2 or GeoLite2).  If neither matching locale is available,
+then the default one is used.
+
+2+^h| Time zone detections
+
+| `timezone`
+| An instance of `TZInfo::Timezone` respective to detected time zone (requires
+GeoIP2 or GeoLite2).
+
+| `timezone_id`
+| An identifier of detected time zone, e.g. `"Europe/Warsaw"` (requires GeoIP2
+or GeoLite2).
+
+| `timezone_offset`
+| Detected time zone offset as a floating point number, e.g. `1.0`.  In other
+words, how many hours UTC is behind the detected time zone (requires GeoIP2 or
+GeoLite2).
+
+| `timezone_desc`
+| Human-readable time zone description, e.g. `"GMT(+1.0) Europe - Warsaw"`
+(requires GeoIP2 or GeoLite2).
+
+|===============================================================================
 
 == Development
 
@@ -40,7 +159,7 @@ If you do not have it setup please follow the steps outlined in this gist
 https://gist.github.com/leonardteo/9a128bc8ca983fa728aa08d8209e714a, as as homebrew install
 will not work.
 
-== Contributing
+=== Contributing
 
 Bug reports and pull requests are welcome on GitHub at
 https://github.com/riboseinc/request_info. This project is intended to be a
@@ -48,9 +167,10 @@ safe, welcoming space for collaboration, and contributors are expected to
 adhere to the http://contributor-covenant.org[Contributor Covenant] code of
 conduct.
 
-
 == License
 
 The gem is available as open source under the terms of the
 http://opensource.org/licenses/MIT[MIT License].
 
+This repository contains a copy of GeoLite2 City database created by Maxmind,
+and licensed on https://creativecommons.org/licenses/by-sa/4.0[CC BY-SA 4.0].
