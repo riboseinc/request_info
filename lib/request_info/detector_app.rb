@@ -6,9 +6,10 @@ require "request_info/detectors/ip_detector"
 require "request_info/detectors/timezone_detector"
 require "request_info/detectors/locale_detector"
 
+module RequestInfo
 # Rack middleware to process all specified detectors and sets results for the
 # current thread
-class RequestInfo::DetectorApp
+class DetectorApp
   class << self
     attr_accessor :detectors
   end
@@ -37,4 +38,5 @@ class RequestInfo::DetectorApp
       app.call(env)
     end
   end
+end
 end
