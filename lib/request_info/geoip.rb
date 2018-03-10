@@ -24,11 +24,8 @@ module RequestInfo
     end
 
     def setup_database
-      MaxmindGeoIP2.file(
-        geoip2_db_path,
-      )
+      MaxmindGeoIP2.file(geoip2_db_path)
       MaxmindGeoIP2.locale("en")
-
       MaxmindGeoIP2
     end
 
