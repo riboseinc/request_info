@@ -42,6 +42,7 @@ RSpec.describe RequestInfo::Detectors::IpDetector do
     end
 
     it "finds IP geographical location" do
+      skip "GeoIP2 has been purposely disabled" if ENV["DISABLE_GEOIP2"]
       expectations_on_inner_app do
         expect(detected.ipinfo["country_code"]).to eq(expected_country_code)
         expect(detected.ipinfo["city"]).to eq(expected_city)

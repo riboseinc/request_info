@@ -18,9 +18,13 @@ module RequestInfo
 
     # Sets up the GeoIPCity database for upcoming queries
     def initialize
-      print "[request_info] setting up geoip database... "
+      unless geoip2_db_path.nil?
+        self.database = setup_database
+      end
+    end
 
-      self.database = MaxmindGeoIP2
+    def setup_database
+      print "[request_info] setting up geoip database... "
 
       MaxmindGeoIP2.file(
         geoip2_db_path,
@@ -28,6 +32,8 @@ module RequestInfo
       MaxmindGeoIP2.locale("en")
 
       puts "Done."
+
+      MaxmindGeoIP2
     rescue LoadError
       Rails.logger.warn "[request_info] Warning: " +
         "Gem maxmind_geoip2 not found (>=0.0.8)"
