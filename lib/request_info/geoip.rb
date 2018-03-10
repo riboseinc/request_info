@@ -4,13 +4,13 @@
 require "maxmind_geoip2"
 require "singleton"
 
-# Our interface to GeoIP.
-#
-# Provides 2 module functions:
-#   setup
-#   lookup(ip)
-#
 module RequestInfo
+  # Brigdes MaxmindGeoIP2.
+  #
+  # Examples:
+  # RequestInfo::GeoIP.instance.lookup('116.49.226.82')
+  # RequestInfo::GeoIP.instance.lookup('24.24.24.24')
+
   class GeoIP
     include Singleton
 
@@ -29,15 +29,8 @@ module RequestInfo
       MaxmindGeoIP2
     end
 
-    ## FOR TESTING
-    ## geoinfo = GeoIp.lookup('116.49.226.82')
-    ## geoinfo = GeoIp.lookup('24.24.24.24')
-
     # Looks up the specified IP address (string) and returns information about
     # the IP address.
-    #
-    # Information currently comes from GeoIPCity.
-    #
     def lookup(ip)
       return nil if self.database.nil? || ip.blank?
       self.database.locate(ip)
