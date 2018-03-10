@@ -19,6 +19,7 @@ module RequestInfo
     # Sets up the GeoIPCity database for upcoming queries
     def initialize
       unless geoip2_db_path.nil?
+        ensure_maxmind_geoip2_availability
         self.database = setup_database
       end
     end
@@ -38,6 +39,13 @@ module RequestInfo
 
     def geoip2_db_path
       RequestInfo.configuration.geoip2_db_path
+    end
+
+    def ensure_maxmind_geoip2_availability
+      MaxmindGeoIP2
+    rescue LoadError
+      raise "RequestInfo requires maxmind_geoip2 gem for GeoIP2 database " +
+        "lookup. Refer to README for configuration details."
     end
   end
 end
