@@ -16,17 +16,17 @@ module RequestInfo
 
     attr_reader :analyzer, :app
 
+    # TODO: make this list of detectors available for others to add/change
+    DEFAULT_DETECTORS = [
+      RequestInfo::Detectors::IpDetector,
+      RequestInfo::Detectors::BrowserDetector,
+      RequestInfo::Detectors::TimezoneDetector,
+      RequestInfo::Detectors::LocaleDetector,
+    ].freeze
+
     def initialize(app)
       @app = app
-
-      # TODO: make this list of detectors available for others to add/change
-      default_detectors = [
-        RequestInfo::Detectors::IpDetector,
-        RequestInfo::Detectors::BrowserDetector,
-        RequestInfo::Detectors::TimezoneDetector,
-        RequestInfo::Detectors::LocaleDetector,
-      ]
-      @analyzer = EnvAnalyzer.new(self.class.detectors || default_detectors)
+      @analyzer = EnvAnalyzer.new(self.class.detectors || DEFAULT_DETECTORS)
     end
 
     def call(env)
