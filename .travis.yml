@@ -37,6 +37,8 @@ matrix:
       gemfile: "gemfiles/Rails-4.1.gemfile"
     - rvm: "2.5"
       gemfile: "gemfiles/Rails-head.gemfile"
+    - rvm: "2.5"
+      env: DISABLE_GEOIP2=1
 
   allow_failures:
     - rvm: "ruby-head"
