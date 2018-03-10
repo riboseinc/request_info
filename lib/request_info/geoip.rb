@@ -34,7 +34,7 @@ module RequestInfo
     rescue
       Rails.logger.warn (
         "[request_info] Warning: Unable to initialize GeoIP database: " +
-        "'#{RequestInfo.config.geoip2_db_path}'. " +
+        "'#{RequestInfo.configuration.geoip2_db_path}'. " +
         "Check configuration."
       )
     end
