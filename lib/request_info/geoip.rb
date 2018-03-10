@@ -39,8 +39,7 @@ module RequestInfo
     # Information currently comes from GeoIPCity.
     #
     def lookup(ip)
-      # Quit if database or IP not present
-      return nil unless self.database && ip && !ip.blank?
+      return nil if self.database.nil? || ip.blank?
       self.database.locate(ip)
     end
 
