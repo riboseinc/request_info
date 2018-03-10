@@ -34,15 +34,6 @@ module RequestInfo
       puts "Done."
 
       MaxmindGeoIP2
-    rescue LoadError
-      Rails.logger.warn "[request_info] Warning: " +
-        "Gem maxmind_geoip2 not found (>=0.0.8)"
-    rescue
-      Rails.logger.warn (
-        "[request_info] Warning: Unable to initialize GeoIP database: " +
-        "'#{geoip2_db_path}'. " +
-        "Check configuration."
-      )
     end
 
     ## FOR TESTING
