@@ -20,16 +20,13 @@ module RequestInfo
       @app = app
 
       # TODO: make this list of detectors available for others to add/change
-      if !self.class.detectors
-        self.class.detectors = [
-          RequestInfo::Detectors::IpDetector,
-          RequestInfo::Detectors::BrowserDetector,
-          RequestInfo::Detectors::TimezoneDetector,
-          RequestInfo::Detectors::LocaleDetector,
-        ]
-      end
-
-      @analyzer = EnvAnalyzer.new(self.class.detectors)
+      default_detectors = [
+        RequestInfo::Detectors::IpDetector,
+        RequestInfo::Detectors::BrowserDetector,
+        RequestInfo::Detectors::TimezoneDetector,
+        RequestInfo::Detectors::LocaleDetector,
+      ]
+      @analyzer = EnvAnalyzer.new(self.class.detectors || default_detectors)
     end
 
     def call(env)
