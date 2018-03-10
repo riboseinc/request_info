@@ -8,8 +8,8 @@ RSpec.describe RequestInfo::Configuration do
   it { is_expected.to respond_to(:locale_name_map_path=) }
   it { is_expected.to respond_to(:locale_map_path) }
   it { is_expected.to respond_to(:locale_map_path=) }
-  it { is_expected.to respond_to(:geoipdb_path) }
-  it { is_expected.to respond_to(:geoipdb_path=) }
+  it { is_expected.to respond_to(:geoip2_db_path) }
+  it { is_expected.to respond_to(:geoip2_db_path=) }
 
   describe "defaults" do
     example do
@@ -23,7 +23,7 @@ RSpec.describe RequestInfo::Configuration do
     end
 
     example do
-      val = subject.geoipdb_path
+      val = subject.geoip2_db_path
       expect(val).to be(nil)
     end
   end

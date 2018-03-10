@@ -3,7 +3,7 @@
 
 module RequestInfo
   class Configuration
-    attr_accessor :locale_name_map_path, :locale_map_path, :geoipdb_path
+    attr_accessor :locale_name_map_path, :locale_map_path, :geoip2_db_path
 
     def initialize
       set_defaults
@@ -14,7 +14,7 @@ module RequestInfo
     def set_defaults
       self.locale_name_map_path = default_locale_name_map_path
       self.locale_map_path = default_locale_map_path
-      self.geoipdb_path = nil
+      self.geoip2_db_path = nil
     end
 
     def default_locale_name_map_path

@@ -16,7 +16,7 @@ module RequestInfo
     end
 
     # Preload databases after initialization since initializers may modify
-    # geoipdb_path
+    # geoip2_db_path
     config.after_initialize do
       RequestInfo.preload
     end
