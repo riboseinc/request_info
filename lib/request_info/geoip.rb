@@ -24,14 +24,10 @@ module RequestInfo
     end
 
     def setup_database
-      print "[request_info] setting up geoip database... "
-
       MaxmindGeoIP2.file(
         geoip2_db_path,
       )
       MaxmindGeoIP2.locale("en")
-
-      puts "Done."
 
       MaxmindGeoIP2
     end
@@ -48,8 +44,6 @@ module RequestInfo
     def lookup(ip)
       # Quit if database or IP not present
       return nil unless self.database && ip && !ip.blank?
-
-      # Rails.logger.warn "[request_info] locate results #{self.database.locate(ip).inspect}"
       self.database.locate(ip)
     end
 
