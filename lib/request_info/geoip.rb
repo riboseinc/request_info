@@ -33,8 +33,8 @@ module RequestInfo
     # Looks up the specified IP address (string) and returns information about
     # the IP address.
     def lookup(ip)
-      return nil if self.database.nil? || ip.blank?
-      self.database.locate(ip)
+      return nil if database.nil? || ip.blank?
+      database.locate(ip)
     end
 
     def geoip2_db_path
