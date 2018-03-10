@@ -29,7 +29,7 @@ module RequestInfo
         ]
       end
 
-      @analyzer = ::RequestInfo::EnvAnalyzer.new(self.class.detectors)
+      @analyzer = EnvAnalyzer.new(self.class.detectors)
     end
 
     def call(env)
