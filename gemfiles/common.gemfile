@@ -2,4 +2,5 @@ source "https://rubygems.org"
 
 gemspec path: ".."
 
+gem "codecov", require: false
 gem "simplecov", require: false
