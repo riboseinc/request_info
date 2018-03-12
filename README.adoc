@@ -2,7 +2,7 @@
 :source-highlighter: pygments
 
 image:https://img.shields.io/travis/riboseinc/request_info/master.svg["Build Status", link="https://travis-ci.org/riboseinc/request_info"]
-image:https://img.shields.io/coverity/scan/12871.svg["Coverity Scan Build Status", link="https://scan.coverity.com/projects/riboseinc-request_info"]
+image:https://img.shields.io/codecov/c/github/riboseinc/request_info.svg["Test Coverage", link="https://codecov.io/gh/riboseinc/request_info"]
 
 == Installation
 
