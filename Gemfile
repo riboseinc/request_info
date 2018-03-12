@@ -3,3 +3,4 @@ source "https://rubygems.org"
 gemspec
 
 gem "maxmind_geoip2"
+gem "simplecov", require: false
