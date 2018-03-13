@@ -26,7 +26,7 @@ RSpec.describe RequestInfo do
 
       retval = RequestInfo.configuration
       expect(retval).to be_a(RequestInfo::Configuration) & be_frozen
-      %i[locale_name_map_path locale_map_path geoip2_db_path].each do |attr_name|
+      %i[locale_map_path geoip2_db_path].each do |attr_name|
         attr_val = retval.send(attr_name)
         attr_default = RequestInfo::Configuration.new.send(attr_name)
         expect(attr_val).to eq(attr_default)
