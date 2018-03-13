@@ -1,8 +1,10 @@
 = request_info
 :source-highlighter: pygments
 
+image:https://img.shields.io/gem/v/request_info.svg["Gem Version", link="https://rubygems.org/gems/request_info"]
 image:https://img.shields.io/travis/riboseinc/request_info/master.svg["Build Status", link="https://travis-ci.org/riboseinc/request_info"]
 image:https://img.shields.io/codecov/c/github/riboseinc/request_info.svg["Test Coverage", link="https://codecov.io/gh/riboseinc/request_info"]
+image:https://img.shields.io/codeclimate/github/riboseinc/request_info.svg["Code Climate", link="https://codeclimate.com/github/riboseinc/request_info"]
 
 Request Info is a Rack middleware which analyzes client's IP address and HTTP
 headers in order to provide detailed information about that client,
