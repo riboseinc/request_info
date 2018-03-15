@@ -26,7 +26,7 @@ RSpec.describe RequestInfo do
 
       retval = RequestInfo.configuration
       expect(retval).to be_a(RequestInfo::Configuration) & be_frozen
-      %i[locale_map_path geoip2_db_path].each do |attr_name|
+      %i[geoip2_db_path].each do |attr_name|
         attr_val = retval.send(attr_name)
         attr_default = RequestInfo::Configuration.new.send(attr_name)
         expect(attr_val).to eq(attr_default)
@@ -49,15 +49,10 @@ RSpec.describe RequestInfo do
 
     example "::configure may be called multiple times" do
       RequestInfo.configure { |c| c.geoip2_db_path = "some/path" }
-      RequestInfo.configure { |c| c.locale_map_path = "different/path" }
       expect(RequestInfo.configuration.geoip2_db_path).to eq("some/path")
-      expect(RequestInfo.configuration.locale_map_path).to eq("different/path")
       RequestInfo.configure { |c| c.geoip2_db_path = "yet/another/path" }
       expect(RequestInfo.configuration.geoip2_db_path).to eq("yet/another/path")
-      expect(RequestInfo.configuration.locale_map_path).to eq("different/path")
-      RequestInfo.configure { |c| c.locale_map_path = "final/path" }
       expect(RequestInfo.configuration.geoip2_db_path).to eq("yet/another/path")
-      expect(RequestInfo.configuration.locale_map_path).to eq("final/path")
     end
 
     example "configuration is thread-safe" do
