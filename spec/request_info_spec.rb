@@ -52,7 +52,6 @@ RSpec.describe RequestInfo do
       expect(RequestInfo.configuration.geoip2_db_path).to eq("some/path")
       RequestInfo.configure { |c| c.geoip2_db_path = "yet/another/path" }
       expect(RequestInfo.configuration.geoip2_db_path).to eq("yet/another/path")
-      expect(RequestInfo.configuration.geoip2_db_path).to eq("yet/another/path")
     end
 
     example "configuration is thread-safe" do
