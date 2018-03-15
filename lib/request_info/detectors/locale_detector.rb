@@ -1,8 +1,8 @@
 # (c) Copyright 2017 Ribose Inc.
 #
 
+require "country_to_locales_mapping"
 require "i18n"
-require "request_info/country_locale_map"
 
 module RequestInfo
   module Detectors
@@ -62,7 +62,7 @@ module RequestInfo
         ipinfo = RequestInfo.results.ipinfo || {}
         country_code = ipinfo["country_code"]
         return [] unless country_code
-        locales = CountryLocaleMap.instance.country_code_locales(country_code)
+        locales = CountryToLocalesMapping.country_code_locales(country_code)
         locales + locales.map { |l| l.split(/\W/, 2).first }
       end
 
