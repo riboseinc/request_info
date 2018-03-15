@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 2.2.0"
 
   spec.add_dependency("browser")
+  spec.add_dependency("country_to_locales_mapping", "~> 0.1")
   spec.add_dependency("i18n")
   spec.add_dependency("rails", ">= 4.1")
   spec.add_dependency("tzinfo")
