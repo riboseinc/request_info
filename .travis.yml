@@ -21,6 +21,7 @@ install:
   - bundle _1.17.3_ install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
 
 rvm:
+  - "2.6"
   - "2.5"
   - "2.4"
   - "2.3"
@@ -32,15 +33,15 @@ gemfile:
 
 matrix:
   include:
-    - rvm: "2.5"
+    - rvm: "2.6"
       gemfile: "gemfiles/Rails-5.0.gemfile"
     - rvm: "2.3"
       gemfile: "gemfiles/Rails-4.2.gemfile"
     - rvm: "2.3"
       gemfile: "gemfiles/Rails-4.1.gemfile"
-    - rvm: "2.5"
+    - rvm: "2.6"
       gemfile: "gemfiles/Rails-head.gemfile"
-    - rvm: "2.5"
+    - rvm: "2.6"
       env: DISABLE_GEOIP2=1
 
   allow_failures:
