@@ -29,10 +29,12 @@ rvm:
   - "ruby-head"
 
 gemfile:
-  - "gemfiles/Rails-5.1.gemfile"
+  - "gemfiles/Rails-5.2.gemfile"
 
 matrix:
   include:
+    - rvm: "2.6"
+      gemfile: "gemfiles/Rails-5.1.gemfile"
     - rvm: "2.6"
       gemfile: "gemfiles/Rails-5.0.gemfile"
     - rvm: "2.3"
