@@ -1,0 +1,4 @@
+eval File.read "gemfiles/common.gemfile" # rubocop:disable Security/Eval
+
+gem "rails", "~> 5.2.0"
+gem "maxmind_geoip2"
