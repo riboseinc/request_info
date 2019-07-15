@@ -48,7 +48,7 @@ class RequestInfo::LocaleNameMap
     CSV.foreach(
       @path,
       # is a Unicode16LE file
-      "r:UTF-16LE:UTF-8",
+      encoding: "r:UTF-16LE:UTF-8",
     ) do |row|
 
       next if row.empty?
