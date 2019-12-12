@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 sudo: required
 language: ruby
 
@@ -15,29 +15,35 @@ cache:
   - bundler
 
 before_install:
-  - gem install bundler -v 1.16.1
+  - gem install bundler -v 1.17.3
+
+install:
+  - bundle _1.17.3_ install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
 
 rvm:
-  - "2.2"
-  - "2.3"
-  - "2.4"
+  - "2.6"
   - "2.5"
+  - "2.4"
+  - "2.3"
+  - "2.2"
   - "ruby-head"
 
 gemfile:
-  - "gemfiles/Rails-5.1.gemfile"
+  - "gemfiles/Rails-5.2.gemfile"
 
 matrix:
   include:
-    - rvm: "2.5"
+    - rvm: "2.6"
+      gemfile: "gemfiles/Rails-5.1.gemfile"
+    - rvm: "2.6"
       gemfile: "gemfiles/Rails-5.0.gemfile"
     - rvm: "2.3"
       gemfile: "gemfiles/Rails-4.2.gemfile"
     - rvm: "2.3"
       gemfile: "gemfiles/Rails-4.1.gemfile"
-    - rvm: "2.5"
+    - rvm: "2.6"
       gemfile: "gemfiles/Rails-head.gemfile"
-    - rvm: "2.5"
+    - rvm: "2.6"
       env: DISABLE_GEOIP2=1
 
   allow_failures:
